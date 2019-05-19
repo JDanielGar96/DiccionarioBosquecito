@@ -10,6 +10,7 @@ public class Control {
 
 	public Control() {
 		ventana = new VentanaPrincipal(this);
+		diccionario = new Diccionario();
 	}
 
 	public void cargarDiccionario(String opcion) {
@@ -26,6 +27,7 @@ public class Control {
 	}
 
 	public void agregarPalabra(String comandoDeAccion, String p, String iO, String t, String iD) {
+		System.out.println(iD);
 		if (ventana.getOpcion().equals("AGREGAR PALABRA")) {
 			diccionario.agregarTraduccion(p, iO, t, iD);
 		}

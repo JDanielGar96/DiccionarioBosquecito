@@ -9,6 +9,7 @@ public class Diccionario {
 
 	public Diccionario() {
 		this.traducciones = new ArrayList<Traduccion>();
+		this.palabras = new ArrayList<Palabra>();
 	}
 	
 	public void agregarTraduccion ( String palabraOrigen, 
@@ -66,5 +67,9 @@ public class Diccionario {
 			}
 		}
 		return null;
+	}
+	
+	public void agregarDiccionario() {
+		// TODO
 	}
 }

@@ -35,9 +35,9 @@ public class PanelDeConsultas extends JPanel {
 	private String[] opcionesTraduccion;
 
 	public PanelDeConsultas() {
-		// Inicialización de variables
+		// Inicializaciï¿½n de variables
 		opcionesTraduccion = new String[4];
-		opcionesTraduccion[0] = "Español";
+		opcionesTraduccion[0] = "Espaï¿½ol";
 		opcionesTraduccion[1] = "Frances";
 		opcionesTraduccion[2] = "Ingles";
 		opcionesTraduccion[3] = "Italiano";
@@ -50,7 +50,6 @@ public class PanelDeConsultas extends JPanel {
 
 		textPalabra = new JTextField();
 		textTraduccion = new JTextField();
-		textTraduccion.setEditable(false);
 
 		comboBoxOrigen = new JComboBox<Object>(opcionesTraduccion);
 		comboBoxDestino = new JComboBox<Object>(opcionesTraduccion);
