@@ -9,6 +9,11 @@ import javax.swing.JButton;
 
 public class PanelOpciones extends JPanel {
 
+	/**
+	 * 
+	 */
+
+	private static final long serialVersionUID = 1L;
 	private JLabel tituloOpciones;
 	private JButton botonCargar;
 	private JButton boton;

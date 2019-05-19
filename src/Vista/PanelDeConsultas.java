@@ -2,12 +2,8 @@ package Vista;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -16,6 +12,11 @@ import javax.swing.JButton;
 
 public class PanelDeConsultas extends JPanel {
 
+	/**
+	 * 
+	 */
+
+	private static final long serialVersionUID = 1L;
 	private JLabel tituloConsulta;
 	private JLabel palabra;
 	private JLabel traduccion;
@@ -35,9 +36,9 @@ public class PanelDeConsultas extends JPanel {
 	private String[] opcionesTraduccion;
 
 	public PanelDeConsultas() {
-		// Inicializaci�n de variables
+		// Inicializo variables
 		opcionesTraduccion = new String[4];
-		opcionesTraduccion[0] = "Espa�ol";
+		opcionesTraduccion[0] = "Espanol";
 		opcionesTraduccion[1] = "Frances";
 		opcionesTraduccion[2] = "Ingles";
 		opcionesTraduccion[3] = "Italiano";

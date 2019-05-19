@@ -90,4 +90,28 @@ public class PanelCantidad extends JPanel {
 
 	}
 
+	public JLabel getCantidadIngles() {
+		return cantidadIngles;
+	}
+
+	public void setCantidadIngles(JLabel cantidadIngles) {
+		this.cantidadIngles = cantidadIngles;
+	}
+
+	public JLabel getCantidadFrances() {
+		return cantidadFrances;
+	}
+
+	public void setCantidadFrances(JLabel cantidadFrances) {
+		this.cantidadFrances = cantidadFrances;
+	}
+
+	public JLabel getCantidadItaliano() {
+		return cantidadItaliano;
+	}
+
+	public void setCantidadItaliano(JLabel cantidadItaliano) {
+		this.cantidadItaliano = cantidadItaliano;
+	}
+
 }
