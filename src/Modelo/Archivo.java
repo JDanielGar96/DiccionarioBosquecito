@@ -49,7 +49,7 @@ public class Archivo {
 	public void cargarDiccionario() {
 		JFileChooser elegirArchivo = new JFileChooser(System.getProperty("user.dir"));
 		elegirArchivo.showOpenDialog(elegirArchivo);
-		Archivo = elegirArchivo.getSelectedFile(); // returns the contacts file to be read
+		Archivo = elegirArchivo.getSelectedFile(); // Devuelve el archivo del diccionario 
 
 		if (Archivo.exists()) {
 			JOptionPane.showMessageDialog(null, "El diccionario: " + Archivo.getName() + " fue abierto exitosamente.");
@@ -118,6 +118,9 @@ public class Archivo {
 			accesoRandom.writeChars(palabra);
 			accesoRandom.writeChars(idioma);
 			accesoRandom.close();
+			
+			linea_Archivo = palabra + " " + idioma;
+			linea_dat.write(linea_Archivo);
 		} catch (FileNotFoundException fnfe) {
 			JOptionPane.showMessageDialog(null, "Ups, el diccionario no pudo ser encontrado.");
 		} catch (IOException ioe) {
