@@ -18,16 +18,16 @@ public class Control {
 		}
 
 	}
-	
-	public void traducirPalabra(String comandoDeAccion, String p, String t, String i) {
+
+	public void traducirPalabra(String comandoDeAccion, String p, String iO, String iD) {
 		if (ventana.getOpcion().equals("TRADUCIR PALABRA")) {
-//			diccionario.traducirPalabra(p, t, i);
+			diccionario.traducir(p, iO, iD);
 		}
 	}
 
 	public void agregarPalabra(String comandoDeAccion, String p, String iO, String t, String iD) {
 		if (ventana.getOpcion().equals("AGREGAR PALABRA")) {
-//			diccionario.agregarPalabra(p, iO, t, iD);
+			diccionario.agregarTraduccion(p, iO, t, iD);
 		}
 	}
 
