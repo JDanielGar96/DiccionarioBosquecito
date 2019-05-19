@@ -100,7 +100,7 @@ public class Diccionario {
 		System.out.println("Italiano " + frecuencias[2]);
 
 		
-	}
+	}	
 	
 	public int[] frecuenciaPalabras() { 
 		ArrayList<String> idiomas = this.obtenerIdiomas();

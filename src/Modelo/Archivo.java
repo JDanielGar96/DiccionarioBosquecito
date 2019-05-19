@@ -19,7 +19,6 @@ public class Archivo {
 	private InputStreamReader isr;
 	private BufferedReader linea;
 	private String linea_Archivo;
-	private FileWriter linea_dat;
 
 	private int registro; // Se guarda automaticamente para identificar la palabra - 4 bites
 	private String palabra; // 50 caracteres maximo - 100 bites
@@ -32,10 +31,13 @@ public class Archivo {
 		ruta = "./Diccionario.dat";
 		Archivo = new File(ruta);
 		accesoRandom = new RandomAccessFile(Archivo, "rw");
+		
+		
 		isr = new InputStreamReader(System.in);
 		linea = new BufferedReader(isr);
+		
+		
 		linea_Archivo = "";
-		linea_dat = new FileWriter(linea_Archivo);
 
 		registro = 0;
 		palabra = "";
@@ -119,8 +121,6 @@ public class Archivo {
 			accesoRandom.writeChars(idioma);
 			accesoRandom.close();
 			
-			linea_Archivo = palabra + " " + idioma;
-			linea_dat.write(linea_Archivo);
 		} catch (FileNotFoundException fnfe) {
 			JOptionPane.showMessageDialog(null, "Ups, el diccionario no pudo ser encontrado.");
 		} catch (IOException ioe) {

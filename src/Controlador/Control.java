@@ -14,16 +14,21 @@ public class Control {
 	private Diccionario diccionario;
 	private Archivo archivo;
 
-	public Control() throws IOException {
+	public Control() {
 		ventana = new VentanaPrincipal(this);
 		diccionario = new Diccionario();
-		archivo = new Archivo();
+		try {
+			archivo = new Archivo();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void cargarDiccionario(String opcion) {
 		if (ventana.getOpcion().equals("FRECUENTES")) {
 			archivo.cargarDiccionario();
-			diccionario.agregarDiccionario();
+//			diccionario.agregarDiccionario();
 		}
 	}
 
