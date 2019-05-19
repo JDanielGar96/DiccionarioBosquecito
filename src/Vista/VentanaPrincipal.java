@@ -6,12 +6,12 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 import Controlador.Control;
 
 public class VentanaPrincipal extends JFrame implements ActionListener {
 
+	private static final long serialVersionUID = 1L;
 	private PanelDeImagen panelImagen;
 	private PanelDeConsultas panelConsulta;
 	private PanelCantidad panelCantidad;
@@ -69,22 +69,19 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String comandoDeAccion = e.getActionCommand();
 		this.opcion = "";
-		String origen = "";
-		String destino = "";
 		String idiomaOrigen = panelConsulta.getComboBoxOrigen().getSelectedItem().toString();
 		String palabra = panelConsulta.getTextPalabra().getText();
 		String traduccion = panelConsulta.getTextTraduccion().getText();
 		String idiomaDestino = panelConsulta.getComboBoxDestino().getSelectedItem().toString();
-		
+
 		try {
 			// Panel De Consultas
-
 			if (comandoDeAccion.equalsIgnoreCase("Limpiar")) {
 				panelConsulta.getTextPalabra().setText("");
 				panelConsulta.getTextTraduccion().setText("");
 			} else {
-				origen = (String) panelConsulta.getComboBoxOrigen().getSelectedItem();
-				destino = (String) panelConsulta.getComboBoxDestino().getSelectedItem();
+				String origen = (String) panelConsulta.getComboBoxOrigen().getSelectedItem();
+				String destino = (String) panelConsulta.getComboBoxDestino().getSelectedItem();
 				if (origen.equalsIgnoreCase(destino)) {
 					JOptionPane.showMessageDialog(this, "Verifica las entradas");
 				}
@@ -97,6 +94,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
 				opcion = "AGREGAR PALABRA";
 				control.agregarPalabra(opcion, palabra, idiomaOrigen, traduccion, idiomaDestino);
+				JOptionPane.showMessageDialog(this, "La palabra fue agregada");
 			}
 			// Panel De Operaciones
 			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
@@ -108,6 +106,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 				opcion = "FRECUENTES";
 				control.frecuentes();
 			}
+			//Panel cantidad
+//			panelCantidad.setCantidadIngles(null);
+//			panelCantidad.setCantidadFrances(null);
+//			panelCantidad.setCantidadItaliano(null);
 
 		} catch (NumberFormatException ex) {
 			mostrarError();
