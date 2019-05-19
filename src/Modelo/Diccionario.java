@@ -1,6 +1,8 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Diccionario {
 	
@@ -69,7 +71,73 @@ public class Diccionario {
 		return null;
 	}
 	
-	public void agregarDiccionario() {
-		// TODO
+	public void agregarDiccionario( ArrayList<Traduccion> traducciones ) {
+		this.traducciones = traducciones;
 	}
+	
+//	public ArrayList<Integer> contarPalabras() {
+//		ArrayList<Integer> idiomas = new ArrayList<Integer>();
+//
+//		
+//		for(int i = 0; i < this.palabras.size(); i++) {
+//			Palabra palabra = this.palabras.get(i);
+//			for(int b = 0; b < idiomas.size(); b++) {
+//				if(b > 0) {
+//					
+//				} else {
+//					
+//				}
+//			}
+//		}
+//	}
+	
+	public ArrayList<String> obtenerIdiomas() {
+		ArrayList<String> idiomas = new ArrayList<String>();
+		
+		for(int i = 0; i < this.palabras.size(); i++) {
+			idiomas.add(this.palabras.get(i).getIdioma());
+		}
+		
+		return idiomas;
+	}
+	
+	public static void main(String[] args) {
+		Diccionario diccionario = new Diccionario();
+		diccionario.palabras.add(new Palabra("Hola", "Espanol"));
+		diccionario.palabras.add(new Palabra("Desden", "Espanol"));
+		diccionario.palabras.add(new Palabra("Hello", "Ingles"));
+		diccionario.palabras.add(new Palabra("Bom", "Portuges"));
+		
+		int[] frecuencias = diccionario.frecuenciaPalabras();
+		
+		System.out.println("Ingles " + frecuencias[0]);
+		System.out.println("Frances " + frecuencias[1]);
+		System.out.println("Italiano " + frecuencias[2]);
+
+		
+	}
+	
+	public int[] frecuenciaPalabras() { 
+		ArrayList<String> idiomas = this.obtenerIdiomas();
+
+		int[] palabras = new int[3];
+		
+		for(String idioma: idiomas) {
+			switch(idioma) {
+			case "Ingles":
+				palabras[0] += 1;
+				break;
+			case "Frances":
+				palabras[1] += 1;
+				break;
+			case "Italiano":
+				palabras[2] += 1;
+				break;
+			default:
+				break;
+			}
+		}
+		
+		return palabras;
+    } 
 }
