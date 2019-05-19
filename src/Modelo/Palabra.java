@@ -1,24 +1,29 @@
 package Modelo;
 
-import java.util.ArrayList;
-
 public class Palabra {
-	private ArrayList<String[]> palabras;
+	private String palabra;
+	private String idioma;
 	
-	public Palabra() {
-		palabras = new ArrayList<String[]>();
-	}
-	
-	public void agregarPalabra(String palabra, String idioma) {
-		String[] tupla = { palabra, idioma };
-		this.palabras.add(tupla);
+	public Palabra(String palabra, String idioma) {
+		this.palabra = palabra;
+		this.idioma = idioma;
 	}
 
-	public ArrayList<String[]> getPalabras() {
-		return palabras;
+	public String getPalabra() {
+		return palabra;
 	}
 
-	public void setPalabras(ArrayList<String[]> palabras) {
-		this.palabras = palabras;
+	public void setPalabra(String palabra) {
+		this.palabra = palabra;
 	}
+
+	public String getIdioma() {
+		return idioma;
+	}
+
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
+	
+	
 }
