@@ -31,7 +31,7 @@ public class PanelDePalabras extends JPanel {
 	public PanelDePalabras() {
 		// Inicializo variables
 		tituloAgregarPalabras = new JLabel("Agregar palabras.");
-		palabraEspanol = new JLabel("Palabra en español");
+		palabraEspanol = new JLabel("Palabra");
 		palabraTraducida = new JLabel("Palabra traducida");
 		idiomaTraduccion = new JLabel("Idioma Traduccion");
 

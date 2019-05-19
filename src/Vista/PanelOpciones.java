@@ -16,7 +16,7 @@ public class PanelOpciones extends JPanel {
 	public PanelOpciones() {
 		// Inicializo variables
 		tituloOpciones = new JLabel("Opciones");
-		botonCargar = new JButton("Cargar Diccionarios");
+		botonCargar = new JButton("Cargar Diccionario");
 		boton = new JButton("Palabras Frecuentes");
 
 		// Agrego variables al panel
