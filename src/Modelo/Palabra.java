@@ -5,6 +5,8 @@ public class Palabra {
 	private String ing;
 	private String ita;
 	private String fra;
+	private String go;
+	
 	
 	
 	public Palabra(String esp) {
