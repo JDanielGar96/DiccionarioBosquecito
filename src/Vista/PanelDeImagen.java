@@ -4,6 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import java.awt.Color;
 
 public class PanelDeImagen extends JLabel {
 
@@ -14,7 +15,8 @@ public class PanelDeImagen extends JLabel {
 	private ImageIcon imagen;
 
 	public PanelDeImagen() {
-
+		setBackground(Color.WHITE);
+		setForeground(Color.WHITE);
 		setBounds(10, 11, 895, 189);
 		path = "./Assets/Icono.png";
 		icono = new ImageIcon(path);

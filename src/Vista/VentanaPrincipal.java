@@ -14,7 +14,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	private PanelDeImagen panelImagen;
 	private PanelDeConsultas panelConsulta;
-	private PanelDePalabras panelPalabras;
 	private PanelCantidad panelCantidad;
 	private PanelOpciones panelOps;
 
@@ -25,7 +24,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		// Inicializo los paneles de la ventana principal
 		panelImagen = new PanelDeImagen();
 		panelConsulta = new PanelDeConsultas();
-		panelPalabras = new PanelDePalabras();
+		panelConsulta.getTextPalabra().setLocation(475, 94);
+		panelConsulta.getBotonTraducir().setSize(200, 50);
+		panelConsulta.getBotonTraducir().setLocation(10, 187);
+		panelConsulta.setBounds(10, 210, 895, 250);
 		panelCantidad = new PanelCantidad();
 		panelOps = new PanelOpciones();
 
@@ -34,7 +36,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		// Agrego el contenido de los paneles a la ventana principal
 		getContentPane().add(panelImagen);
 		getContentPane().add(panelConsulta);
-		getContentPane().add(panelPalabras);
 		getContentPane().add(panelCantidad);
 		getContentPane().add(panelOps);
 
@@ -57,31 +58,27 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		// Agrego escuchadores a los botones
 		panelConsulta.getBotonTraducir().addActionListener(this);
 		panelConsulta.getBotonLimpiar().addActionListener(this);
-
-		panelPalabras.getBotonAgregar().addActionListener(this);
-		panelPalabras.getBotonLimpiar().addActionListener(this);
+		panelConsulta.getBotonAgregar().addActionListener(this);
 
 		panelOps.getBotonCargar().addActionListener(this);
 		panelOps.getBoton().addActionListener(this);
 
 	}
 
-	public String getOpcion() {
-		return opcion;
-	}
-
-	public void setOpcion(String opcion) {
-		this.opcion = opcion;
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comandoDeAccion = e.getActionCommand();
 		this.opcion = "";
+		String origen = "";
+		String destino = "";
+		String idiomaOrigen = panelConsulta.getComboBoxOrigen().getSelectedItem().toString();
+		String palabra = panelConsulta.getTextPalabra().getText();
+		String traduccion = panelConsulta.getTextTraduccion().getText();
+		String idiomaDestino = panelConsulta.getComboBoxDestino().getSelectedItem().toString();
+		
 		try {
 			// Panel De Consultas
-			String origen = "";
-			String destino = "";
+
 			if (comandoDeAccion.equalsIgnoreCase("Limpiar")) {
 				panelConsulta.getTextPalabra().setText("");
 				panelConsulta.getTextTraduccion().setText("");
@@ -94,18 +91,22 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			}
 			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
 				opcion = "TRADUCIR";
+				control.traducirPalabra(palabra, idiomaOrigen, traduccion, idiomaDestino);
 			}
-			// Panel De Palabras
-			if (comandoDeAccion.equalsIgnoreCase("Limpiar")) {
-				panelPalabras.getPalabraSpa().setText("");
-				panelPalabras.getPalabraTradu().setText("");
-			}
+
 			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
 				opcion = "AGREGAR PALABRA";
-				String palabra = panelPalabras.getPalabraSpa().getText();
-				String traduccion = panelPalabras.getPalabraTradu().getText();
-				String idioma = panelPalabras.getComboBoxIdioma().getSelectedItem().toString();
-				control.agregarPalabra(opcion, palabra, traduccion, idioma);
+				control.agregarPalabra(opcion, palabra, idiomaOrigen, traduccion, idiomaDestino);
+			}
+			// Panel De Operaciones
+			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
+				opcion = "CARGAR DICCIONARIO";
+				control.cargarDiccionario(opcion);
+			}
+
+			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
+				opcion = "FRECUENTES";
+				control.frecuentes();
 			}
 
 		} catch (NumberFormatException ex) {
@@ -118,4 +119,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(null, "Lo siento, ha ocurrido un error.");
 	}
 
+	public String getOpcion() {
+		return opcion;
+	}
+
+	public void setOpcion(String opcion) {
+		this.opcion = opcion;
+	}
 }

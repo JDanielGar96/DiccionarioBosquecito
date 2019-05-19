@@ -30,6 +30,7 @@ public class PanelDeConsultas extends JPanel {
 
 	private JButton botonTraducir;
 	private JButton botonLimpiar;
+	private JButton botonAgregar;
 
 	private String[] opcionesTraduccion;
 
@@ -56,6 +57,7 @@ public class PanelDeConsultas extends JPanel {
 
 		botonTraducir = new JButton("Traducir");
 		botonLimpiar = new JButton("Limpiar");
+		botonAgregar = new JButton("Agregar");
 
 		// Agregar variables al panel
 
@@ -70,13 +72,14 @@ public class PanelDeConsultas extends JPanel {
 		add(comboBoxDestino);
 		add(botonTraducir);
 		add(botonLimpiar);
+		add(botonAgregar);
 
 		Initialize();
 		setVisible(true);
 	}
 
 	private void Initialize() {
-		setBounds(10, 210, 525, 250);
+		setBounds(10, 210, 895, 250);
 		setBackground(Color.DARK_GRAY);
 		setLayout(null);
 
@@ -89,41 +92,45 @@ public class PanelDeConsultas extends JPanel {
 		palabra.setForeground(Color.WHITE);
 		palabra.setHorizontalAlignment(SwingConstants.CENTER);
 		palabra.setFont(new Font("Tahoma", Font.BOLD, 15));
-		palabra.setBounds(10, 155, 157, 23);
+		palabra.setBounds(475, 60, 200, 23);
 
 		traduccion.setForeground(Color.WHITE);
 		traduccion.setHorizontalAlignment(SwingConstants.CENTER);
 		traduccion.setFont(new Font("Tahoma", Font.BOLD, 15));
-		traduccion.setBounds(186, 155, 157, 23);
+		traduccion.setBounds(685, 60, 200, 23);
 
 		idiomaOrigen.setForeground(Color.WHITE);
 		idiomaOrigen.setHorizontalAlignment(SwingConstants.CENTER);
 		idiomaOrigen.setFont(new Font("Tahoma", Font.BOLD, 15));
-		idiomaOrigen.setBounds(10, 60, 157, 23);
+		idiomaOrigen.setBounds(10, 60, 200, 23);
 
 		// Cuadros de texto
 		idiomaDestino.setForeground(Color.WHITE);
 		idiomaDestino.setHorizontalAlignment(SwingConstants.CENTER);
 		idiomaDestino.setFont(new Font("Tahoma", Font.BOLD, 15));
-		idiomaDestino.setBounds(186, 60, 157, 23);
+		idiomaDestino.setBounds(220, 60, 200, 23);
 
 		textPalabra.setColumns(10);
-		textPalabra.setBounds(10, 189, 157, 50);
+		textPalabra.setBounds(475, 94, 200, 50);
 
 		textTraduccion.setColumns(10);
-		textTraduccion.setBounds(186, 189, 157, 50);
+		textTraduccion.setBounds(685, 94, 200, 50);
 
 		// Cajas de opciones desplegables
-		comboBoxOrigen.setBounds(10, 94, 157, 50);
-		comboBoxDestino.setBounds(186, 94, 157, 50);
+		comboBoxOrigen.setBounds(10, 94, 200, 50);
+		comboBoxDestino.setBounds(220, 94, 200, 50);
 
 		// Botones
 		botonTraducir.setFont(new Font("Tahoma", Font.BOLD, 15));
-		botonTraducir.setBounds(363, 94, 152, 50);
+		botonTraducir.setBounds(10, 187, 200, 50);
 
 		botonLimpiar.setFont(new Font("Tahoma", Font.BOLD, 15));
-		botonLimpiar.setBounds(363, 189, 152, 50);
-	}	
+		botonLimpiar.setBounds(220, 188, 200, 48);
+
+		botonAgregar.setFont(new Font("Tahoma", Font.BOLD, 15));
+		botonAgregar.setBounds(475, 187, 200, 50);
+
+	}
 
 	public JButton getBotonTraducir() {
 		return botonTraducir;
@@ -139,6 +146,14 @@ public class PanelDeConsultas extends JPanel {
 
 	public void setBotonLimpiar(JButton botonLimpiar) {
 		this.botonLimpiar = botonLimpiar;
+	}
+
+	public JButton getBotonAgregar() {
+		return botonAgregar;
+	}
+
+	public void setBotonAgregar(JButton botonAgregar) {
+		this.botonAgregar = botonAgregar;
 	}
 
 	public JTextField getTextPalabra() {
@@ -172,6 +187,4 @@ public class PanelDeConsultas extends JPanel {
 	public void setComboBoxDestino(JComboBox<?> comboBoxDestino) {
 		this.comboBoxDestino = comboBoxDestino;
 	}
-	
-	
 }
