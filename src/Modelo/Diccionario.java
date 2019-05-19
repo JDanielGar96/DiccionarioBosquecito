@@ -75,21 +75,6 @@ public class Diccionario {
 		this.traducciones = traducciones;
 	}
 	
-//	public ArrayList<Integer> contarPalabras() {
-//		ArrayList<Integer> idiomas = new ArrayList<Integer>();
-//
-//		
-//		for(int i = 0; i < this.palabras.size(); i++) {
-//			Palabra palabra = this.palabras.get(i);
-//			for(int b = 0; b < idiomas.size(); b++) {
-//				if(b > 0) {
-//					
-//				} else {
-//					
-//				}
-//			}
-//		}
-//	}
 	
 	public ArrayList<String> obtenerIdiomas() {
 		ArrayList<String> idiomas = new ArrayList<String>();
