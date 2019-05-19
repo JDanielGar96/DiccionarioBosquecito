@@ -6,6 +6,7 @@ public class Palabra {
 	private String ita;
 	private String fra;
 	
+	
 	public Palabra(String esp) {
 		this.esp = esp;
 	}
