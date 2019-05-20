@@ -8,32 +8,44 @@ public class Diccionario {
 	private ArrayList<String> palabras;
 	private ArrayList<String> traducciones;
 	
-	public Diccionario() {
-		palabras = new ArrayList<String>();
-		traducciones = new ArrayList<String>();
+	public Diccionario(String nombre) {
+		this.nombre = nombre;
+		this.palabras = new ArrayList<String>();
+		this.traducciones = new ArrayList<String>();
+	}
+	
+	public boolean agregarPalabra(String palabra, String traduccion) {
+		// TODO -> ADD WORD VERIFICATION
+		this.palabras.add(palabra);
+		this.traducciones.add(traduccion);
+		return true;
+	}
+	
+	public int contarTraducciones() {
+		return this.traducciones.size();
 	}
 
-	public String getNombre() {
+	public String obtenerNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void modificarNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public ArrayList<String> getPalabras() {
+	public ArrayList<String> obtenerPalabras() {
 		return palabras;
 	}
 
-	public void setPalabras(ArrayList<String> palabras) {
+	public void modificarPalabras(ArrayList<String> palabras) {
 		this.palabras = palabras;
 	}
 
-	public ArrayList<String> getTraducciones() {
+	public ArrayList<String> obtenerTraducciones() {
 		return traducciones;
 	}
 
-	public void setTraducciones(ArrayList<String> traducciones) {
+	public void modificarTraducciones(ArrayList<String> traducciones) {
 		this.traducciones = traducciones;
 	}
 }
