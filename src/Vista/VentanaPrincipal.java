@@ -101,11 +101,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 				panelPalabras.getPalabraTradu().setText("");
 			}
 			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
-				opcion = "AGREGAR PALABRA";
 				String palabra = panelPalabras.getPalabraSpa().getText();
 				String traduccion = panelPalabras.getPalabraTradu().getText();
 				String idioma = panelPalabras.getComboBoxIdioma().getSelectedItem().toString();
-				control.agregarPalabra(opcion, palabra, traduccion, idioma);
+				
+				control.agregarPalabra(palabra, traduccion, idioma);
 			}
 
 		} catch (NumberFormatException ex) {
