@@ -31,7 +31,7 @@ public class PanelDePalabras extends JPanel {
 	public PanelDePalabras() {
 		// Inicializo variables
 		tituloAgregarPalabras = new JLabel("Agregar palabras.");
-		palabraEspanol = new JLabel("Palabra");
+		palabraEspanol = new JLabel("Palabra (ESP)");
 		palabraTraducida = new JLabel("Palabra traducida");
 		idiomaTraduccion = new JLabel("Idioma Traduccion");
 
@@ -39,9 +39,9 @@ public class PanelDePalabras extends JPanel {
 		palabraTradu = new JTextField();
 
 		comboBoxIdioma = new JComboBox<String>();
-		comboBoxIdioma.addItem("Frances");
-		comboBoxIdioma.addItem("Ingles");
-		comboBoxIdioma.addItem("Italiano");
+		comboBoxIdioma.addItem("FR");
+		comboBoxIdioma.addItem("ING");
+		comboBoxIdioma.addItem("ITA");
 
 		botonAgregar = new JButton("Agregar");
 		botonLimpiar = new JButton("Limpiar");
