@@ -2,18 +2,36 @@ package Modelo;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * [Modelo encargado de las estructura del diccionario]
+ * @author DANIEL AND OSCAR
+ * @version 0.5
+ * 
+ */
 public class Diccionario {
 	
 	private String nombre;
 	private ArrayList<String> palabras;
 	private ArrayList<String> traducciones;
 	
+	/**
+	 * [Constructor que recibe el nombre del diccionario]
+	 * @param nombre
+	 */
 	public Diccionario(String nombre) {
 		this.nombre = nombre;
 		this.palabras = new ArrayList<String>();
 		this.traducciones = new ArrayList<String>();
 	}
 	
+	/**
+	 * [Recibe una palabra y su traduccion para agregarla al diccionario]
+	 * 
+	 * @param palabra
+	 * @param traduccion
+	 * @return boolean 
+	 */
 	public boolean agregarPalabra(String palabra, String traduccion) {
 		// TODO -> ADD WORD VERIFICATION
 		this.palabras.add(palabra);
@@ -21,6 +39,25 @@ public class Diccionario {
 		return true;
 	}
 	
+	/**
+	 * [Recibe una palabra y retorna la traduccion de la misma]
+	 * @param palabra
+	 * @return String
+	 */
+	public String buscarTraduccion(String palabra) {
+		for(int i = 0; i < this.palabras.size(); i++) {
+			if(this.palabras.get(i).equalsIgnoreCase(palabra)) {
+				return this.traducciones.get(i);
+			}
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * [Retorna la cantidad de traducciones en el diccionario]
+	 * @return
+	 */
 	public int contarTraducciones() {
 		return this.traducciones.size();
 	}

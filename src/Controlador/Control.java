@@ -33,4 +33,22 @@ public class Control {
 			break;
 		}
 	}
+	
+	public String buscarTraduccion(String palabra, String idioma) {
+		String traduccion = "";
+		switch(idioma) {
+		case "ENG":
+			traduccion = this.diccionarioEng.buscarTraduccion(palabra);
+			break;
+		case "FRA":
+			traduccion = this.diccionarioFra.buscarTraduccion(palabra);
+			break;
+		case "ITA":
+			traduccion = this.diccionarioIta.buscarTraduccion(palabra);
+			break;
+		default:
+			break;
+		}
+		return traduccion;
+	}
 }
