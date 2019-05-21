@@ -1,5 +1,8 @@
 package Controlador;
 
+import java.io.IOException;
+
+import Modelo.ArchivoAleatorio;
 import Modelo.Diccionario;
 import Vista.VentanaPrincipal;
 

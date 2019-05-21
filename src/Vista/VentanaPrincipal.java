@@ -66,47 +66,52 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	}
 
-	public String getOpcion() {
-		return opcion;
-	}
-
-	public void setOpcion(String opcion) {
-		this.opcion = opcion;
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comandoDeAccion = e.getActionCommand();
 		this.opcion = "";
+		String idiomaOrigen = panelConsulta.getComboBoxOrigen().getSelectedItem().toString();
+		String palabra = panelConsulta.getTextPalabra().getText();
+		String traduccion = panelConsulta.getTextTraduccion().getText();
+		String idiomaDestino = panelConsulta.getComboBoxDestino().getSelectedItem().toString();
 		try {
 			// Panel De Consultas
-			String origen = "";
-			String destino = "";
 			if (comandoDeAccion.equalsIgnoreCase("Limpiar")) {
 				panelConsulta.getTextPalabra().setText("");
 				panelConsulta.getTextTraduccion().setText("");
 			} else {
-				origen = (String) panelConsulta.getComboBoxOrigen().getSelectedItem();
-				destino = (String) panelConsulta.getComboBoxDestino().getSelectedItem();
+				String origen = (String) panelConsulta.getComboBoxOrigen().getSelectedItem();
+				String destino = (String) panelConsulta.getComboBoxDestino().getSelectedItem();
 				if (origen.equalsIgnoreCase(destino)) {
 					JOptionPane.showMessageDialog(this, "Verifica las entradas");
 				}
 			}
-			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
-				opcion = "TRADUCIR";
-			}
-			// Panel De Palabras
-			if (comandoDeAccion.equalsIgnoreCase("Limpiar")) {
-				panelPalabras.getPalabraSpa().setText("");
-				panelPalabras.getPalabraTradu().setText("");
-			}
-			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
-				String palabra = panelPalabras.getPalabraSpa().getText();
-				String traduccion = panelPalabras.getPalabraTradu().getText();
-				String idioma = panelPalabras.getComboBoxIdioma().getSelectedItem().toString();
-				
-				control.agregarPalabra(palabra, traduccion, idioma);
-			}
+//			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
+//				opcion = "TRADUCIR PALABRA";
+//				control.traducirPalabra(palabra, idiomaOrigen, traduccion, idiomaDestino);
+//			}
+//
+//			//Panel de palabras
+//			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
+//				opcion = "AGREGAR PALABRA";
+//				control.agregarPalabra(opcion, palabra, idiomaOrigen, traduccion, idiomaDestino);
+//				JOptionPane.showMessageDialog(this, "La palabra fue agregada");
+//			}
+//			// Panel De Operaciones
+//			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
+//				opcion = "CARGAR DICCIONARIO";
+//				control.cargarDiccionario(opcion);
+//			}
+//
+//			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
+//				opcion = "FRECUENTES";
+//				control.frecuentes();
+//			}
+//			
+			// Panel cantidad
+//			panelCantidad.setCantidadIngles(null);
+//			panelCantidad.setCantidadFrances(null);
+//			panelCantidad.setCantidadItaliano(null);
 
 		} catch (NumberFormatException ex) {
 			mostrarError();
@@ -116,6 +121,14 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	public void mostrarError() {
 		JOptionPane.showMessageDialog(null, "Lo siento, ha ocurrido un error.");
+	}
+
+	public String getOpcion() {
+		return opcion;
+	}
+
+	public void setOpcion(String opcion) {
+		this.opcion = opcion;
 	}
 
 }
