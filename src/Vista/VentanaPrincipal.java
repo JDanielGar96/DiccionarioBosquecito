@@ -12,6 +12,11 @@ import Controlador.Control;
 
 public class VentanaPrincipal extends JFrame implements ActionListener {
 
+	/**
+	 * 
+	 */
+
+	private static final long serialVersionUID = 1L;
 	private PanelDeImagen panelImagen;
 	private PanelDeConsultas panelConsulta;
 	private PanelDePalabras panelPalabras;
@@ -70,10 +75,17 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String comandoDeAccion = e.getActionCommand();
 		this.opcion = "";
+
+		// Panel Consultas
 		String idiomaOrigen = panelConsulta.getComboBoxOrigen().getSelectedItem().toString();
-		String palabra = panelConsulta.getTextPalabra().getText();
+		String palabraBuscada = panelConsulta.getTextPalabra().getText();
 		String traduccion = panelConsulta.getTextTraduccion().getText();
 		String idiomaDestino = panelConsulta.getComboBoxDestino().getSelectedItem().toString();
+
+		// Panel Palabras
+		String palabraNueva = panelPalabras.getPalabraSpa().getText();
+		String palabraNuevaTrad = panelPalabras.getPalabraTradu().getText();
+		String idioma = panelPalabras.getComboBoxIdioma().getSelectedItem().toString();
 		try {
 			// Panel De Consultas
 			if (comandoDeAccion.equalsIgnoreCase("Limpiar")) {
@@ -86,32 +98,37 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(this, "Verifica las entradas");
 				}
 			}
-//			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
-//				opcion = "TRADUCIR PALABRA";
-//				control.traducirPalabra(palabra, idiomaOrigen, traduccion, idiomaDestino);
-//			}
-//
-//			//Panel de palabras
-//			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
-//				opcion = "AGREGAR PALABRA";
-//				control.agregarPalabra(opcion, palabra, idiomaOrigen, traduccion, idiomaDestino);
-//				JOptionPane.showMessageDialog(this, "La palabra fue agregada");
-//			}
-//			// Panel De Operaciones
-//			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
-//				opcion = "CARGAR DICCIONARIO";
-//				control.cargarDiccionario(opcion);
-//			}
-//
-//			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
-//				opcion = "FRECUENTES";
-//				control.frecuentes();
-//			}
-//			
+			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
+				opcion = "TRADUCIR PALABRA";
+				control.buscarTraduccion(opcion, palabraBuscada, idiomaOrigen, idiomaDestino, traduccion);
+			}
+
+			// Panel de palabras
+			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
+				opcion = "AGREGAR PALABRA";
+				control.agregarPalabra(opcion, palabraNueva, palabraNuevaTrad, idioma);
+				JOptionPane.showMessageDialog(this, "La palabra fue agregada");
+			}
+
+			if (comandoDeAccion.equalsIgnoreCase("Limpiar") && e.getSource().equals(panelPalabras.getBotonLimpiar())) {
+				panelPalabras.getPalabraSpa().setText("");
+				panelPalabras.getPalabraTradu().setText("");
+			}
+			// Panel De Operaciones
+			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
+				opcion = "CARGAR DICCIONARIO";
+				control.cargarDiccionario(opcion);
+			}
+
+			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
+				opcion = "FRECUENTES";
+				control.frecuentes();
+			}
+
 			// Panel cantidad
-//			panelCantidad.setCantidadIngles(null);
-//			panelCantidad.setCantidadFrances(null);
-//			panelCantidad.setCantidadItaliano(null);
+			panelCantidad.setCantidadIngles(control.actualizarNumPalIng());
+			panelCantidad.setCantidadFrances(control.actualizarNumFr());
+			panelCantidad.setCantidadItaliano(control.actualizarNumIta());
 
 		} catch (NumberFormatException ex) {
 			mostrarError();
