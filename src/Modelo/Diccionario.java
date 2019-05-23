@@ -2,6 +2,8 @@ package Modelo;
 
 import java.util.ArrayList;
 
+import javax.swing.JFileChooser;
+
 /**
  * 
  * [Modelo encargado de las estructura del diccionario]
@@ -44,10 +46,19 @@ public class Diccionario {
 	 * @param palabra
 	 * @return String
 	 */
-	public String buscarTraduccion(String palabra) {
+	public String traduccionPalabra(String palabra) {
 		for(int i = 0; i < this.palabras.size(); i++) {
 			if(this.palabras.get(i).equalsIgnoreCase(palabra)) {
 				return this.traducciones.get(i);
+			}
+		}
+		return null;
+	}
+	
+	public String traduccionInversaPalabra(String palabra, boolean idiomaEsp) {
+		for(int i = 0; i < this.traducciones.size(); i++) {
+			if(this.traducciones.get(i).equalsIgnoreCase(palabra)) {
+				return this.palabras.get(i);
 			}
 		}
 		return null;
@@ -60,6 +71,10 @@ public class Diccionario {
 	 */
 	public int contarTraducciones() {
 		return this.traducciones.size();
+	}
+	
+	public void cargarDiccionario() {
+    	JFileChooser fc =new JFileChooser();  
 	}
 
 	public String obtenerNombre() {
