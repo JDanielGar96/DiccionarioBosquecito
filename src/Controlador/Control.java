@@ -30,48 +30,60 @@ public class Control {
 		}
 	}
 
-	public void cargarDiccionario(String comandoDeAccion) {
-		if (ventana.getOpcion().equals("CARGAR DICCIONARIO")) {
-			archivoAle.cargarDiccionario();
-		}
+	public void cargarDiccionario() {
+		archivoAle.cargarDiccionario();
 	}
 	
-	public void agregarPalabra(String comandoDeAccion, String palabra, String traduccion, String idioma) {
-		if (ventana.getOpcion().equals("AGREGAR PALABRA")) {
-			switch (idioma) {
-			case "ENG":
-				this.diccionarioEng.agregarPalabra(palabra, traduccion);
-				break;
-			case "FRA":
-				this.diccionarioFra.agregarPalabra(palabra, traduccion);
-				break;
-			case "ITA":
-				this.diccionarioIta.agregarPalabra(palabra, traduccion);
-				break;
-			default:
-				break;
-			}
+	public void agregarPalabra(String palabra, String traduccion, String idioma) {
+		switch (idioma) {
+		case "ENG":
+			this.diccionarioEng.agregarPalabra(palabra, traduccion);
+			break;
+		case "FRA":
+			this.diccionarioFra.agregarPalabra(palabra, traduccion);
+			break;
+		case "ITA":
+			this.diccionarioIta.agregarPalabra(palabra, traduccion);
+			break;
+		default:
+			break;
 		}
 	}
 
-	public String buscarTraduccion(String comandoDeAccion, String palabraBuscada, String idiomaOrigen,
-			String idiomaDestino, String traduccion) {
+	public String buscarTraduccion( String palabraBuscada, 
+									String idiomaOrigen,
+									String idiomaDestino, 
+									String traduccion) {
 		String traducido = "";
-		if (ventana.getOpcion().equals("AGREGAR PALABRA")) {
-			switch (idiomaOrigen) {
+		
+		if(idiomaOrigen.equalsIgnoreCase("ESP")) {				
+			switch (idiomaDestino) {
 			case "ENG":
-				traduccion = this.diccionarioEng.buscarTraduccion(palabraBuscada);
+				traduccion = this.diccionarioEng.traduccionPalabra(palabraBuscada);
 				break;
 			case "FRA":
-				traduccion = this.diccionarioFra.buscarTraduccion(palabraBuscada);
+				traduccion = this.diccionarioFra.traduccionPalabra(palabraBuscada);
 				break;
 			case "ITA":
-				traduccion = this.diccionarioIta.buscarTraduccion(palabraBuscada);
+				traduccion = this.diccionarioIta.traduccionPalabra(palabraBuscada);
 				break;
 			default:
 				break;
 			}
-
+		} else {
+			switch (idiomaOrigen) {
+			case "ENG":
+				traduccion = this.diccionarioEng.traduccionInversaPalabra(palabraBuscada);
+				break;
+			case "FRA":
+				traduccion = this.diccionarioFra.traduccionInversaPalabra(palabraBuscada);
+				break;
+			case "ITA":
+				traduccion = this.diccionarioIta.traduccionInversaPalabra(palabraBuscada);
+				break;
+			default:
+				break;
+			}
 		}
 		return traducido;
 	}

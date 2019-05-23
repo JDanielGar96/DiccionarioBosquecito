@@ -55,7 +55,12 @@ public class Diccionario {
 		return null;
 	}
 	
-	public String traduccionInversaPalabra(String palabra, boolean idiomaEsp) {
+	/**
+	 * [Recibe una palabra en el otro idioma y retorna la traduccion en espanol de la misma]
+	 * @param palabra
+	 * @return String
+	 */
+	public String traduccionInversaPalabra(String palabra) {
 		for(int i = 0; i < this.traducciones.size(); i++) {
 			if(this.traducciones.get(i).equalsIgnoreCase(palabra)) {
 				return this.palabras.get(i);

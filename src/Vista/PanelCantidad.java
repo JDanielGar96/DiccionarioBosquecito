@@ -13,6 +13,7 @@ public class PanelCantidad extends JPanel {
 	 */
 	
 	private static final long serialVersionUID = 1L;
+	
 	private JLabel tituloCantidad;
 	private JLabel tituloDiccionario;
 	private JLabel ingles;
@@ -29,19 +30,11 @@ public class PanelCantidad extends JPanel {
 		ingles = new JLabel("Ingles:");
 		frances = new JLabel("Frances:");
 		italiano = new JLabel("Italiano:");
+		
 		cantidadIngles = new JLabel("0");
 		cantidadFrances = new JLabel("0");
 		cantidadItaliano = new JLabel("0");
 
-		// Agrego variables al panel
-		add(tituloCantidad);
-		add(tituloDiccionario);
-		add(ingles);
-		add(frances);
-		add(italiano);
-		add(cantidadIngles);
-		add(cantidadFrances);
-		add(cantidadItaliano);
 
 		Initialize();
 		setVisible(true);
@@ -51,6 +44,16 @@ public class PanelCantidad extends JPanel {
 		setBounds(915, 11, 269, 189);
 		setBackground(Color.GRAY);
 		setLayout(null);
+		
+		// Agrego variables al panel
+		add(tituloCantidad);
+		add(tituloDiccionario);
+		add(ingles);
+		add(frances);
+		add(italiano);
+		add(cantidadIngles);
+		add(cantidadFrances);
+		add(cantidadItaliano);
 
 		// Labels o etiquetas
 		tituloCantidad.setHorizontalAlignment(SwingConstants.CENTER);
@@ -95,28 +98,18 @@ public class PanelCantidad extends JPanel {
 
 	}
 
-	public JLabel getCantidadIngles() {
-		return cantidadIngles;
+
+	public void setCantidadIngles(int cantidadIngles) {
+		this.cantidadIngles.setText(String.valueOf(cantidadIngles));
 	}
 
-	public void setCantidadIngles(JLabel cantidadIngles) {
-		this.cantidadIngles = cantidadIngles;
+
+	public void setCantidadFrances(int cantidadFrances) {
+		this.cantidadFrances.setText(String.valueOf(cantidadFrances));
 	}
 
-	public JLabel getCantidadFrances() {
-		return cantidadFrances;
-	}
-
-	public void setCantidadFrances(JLabel cantidadFrances) {
-		this.cantidadFrances = cantidadFrances;
-	}
-
-	public JLabel getCantidadItaliano() {
-		return cantidadItaliano;
-	}
-
-	public void setCantidadItaliano(JLabel cantidadItaliano) {
-		this.cantidadItaliano = cantidadItaliano;
+	public void setCantidadItaliano(int cantidadItaliano) {
+		this.cantidadItaliano.setText(String.valueOf(cantidadItaliano));
 	}
 
 }
