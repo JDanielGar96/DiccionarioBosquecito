@@ -18,6 +18,12 @@ public class ArchivoAleatorio {
 		palabraTraducida = "";
 		idioma = "";
 	}
+	
+	//Carga el diccionario
+	
+	public void cargarDiccionario() {
+		
+	}
 
 	// Este metodo escribi de a una linea en el archivo 
 	public void agregarPalabra(String entrada) {

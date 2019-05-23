@@ -8,6 +8,11 @@ import javax.swing.SwingConstants;
 
 public class PanelCantidad extends JPanel {
 
+	/**
+	 * 
+	 */
+	
+	private static final long serialVersionUID = 1L;
 	private JLabel tituloCantidad;
 	private JLabel tituloDiccionario;
 	private JLabel ingles;
@@ -88,6 +93,30 @@ public class PanelCantidad extends JPanel {
 		cantidadItaliano.setForeground(Color.BLACK);
 		cantidadItaliano.setBounds(140, 140, 119, 25);
 
+	}
+
+	public JLabel getCantidadIngles() {
+		return cantidadIngles;
+	}
+
+	public void setCantidadIngles(JLabel cantidadIngles) {
+		this.cantidadIngles = cantidadIngles;
+	}
+
+	public JLabel getCantidadFrances() {
+		return cantidadFrances;
+	}
+
+	public void setCantidadFrances(JLabel cantidadFrances) {
+		this.cantidadFrances = cantidadFrances;
+	}
+
+	public JLabel getCantidadItaliano() {
+		return cantidadItaliano;
+	}
+
+	public void setCantidadItaliano(JLabel cantidadItaliano) {
+		this.cantidadItaliano = cantidadItaliano;
 	}
 
 }
