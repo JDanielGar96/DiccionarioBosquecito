@@ -11,21 +11,20 @@ public class PanelOpciones extends JPanel {
 
 	private JLabel tituloOpciones;
 	private JButton botonCargar;
-	private JButton boton;
+	private JButton botonFrecuencia;
 
 	public PanelOpciones() {
 		// Inicializo variables
 		tituloOpciones = new JLabel("Opciones");
 		botonCargar = new JButton("Cargar Diccionario");
-		boton = new JButton("Palabras Frecuentes");
+		botonFrecuencia = new JButton("Palabras Frecuentes");
 
 		// Agrego variables al panel
 		add(tituloOpciones);
 		add(botonCargar);
-		add(boton);
+		add(botonFrecuencia);
 
 		Initialize();
-		setVisible(true);
 	}
 
 	private void Initialize() {
@@ -43,8 +42,10 @@ public class PanelOpciones extends JPanel {
 		botonCargar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		botonCargar.setBounds(10, 80, 249, 50);
 
-		boton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		boton.setBounds(10, 155, 249, 50);
+		botonFrecuencia.setFont(new Font("Tahoma", Font.BOLD, 15));
+		botonFrecuencia.setBounds(10, 155, 249, 50);
+		
+		setVisible(true);
 	}
 
 	public JButton getBotonCargar() {
@@ -55,12 +56,12 @@ public class PanelOpciones extends JPanel {
 		this.botonCargar = botonCargar;
 	}
 
-	public JButton getBoton() {
-		return boton;
+	public JButton getBotonFrecuencia() {
+		return botonFrecuencia;
 	}
 
-	public void setBoton(JButton boton) {
-		this.boton = boton;
+	public void setBotonFrecuencia(JButton botonFrecuencia) {
+		this.botonFrecuencia = botonFrecuencia;
 	}
 
 }

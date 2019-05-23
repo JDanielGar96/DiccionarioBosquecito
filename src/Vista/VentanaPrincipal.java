@@ -24,7 +24,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	private PanelOpciones panelOps;
 
 	private Control control;
-	private String opcion;
 
 	public VentanaPrincipal(Control c) {
 		// Inicializo los paneles de la ventana principal
@@ -67,68 +66,70 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		panelPalabras.getBotonLimpiar().addActionListener(this);
 
 		panelOps.getBotonCargar().addActionListener(this);
-		panelOps.getBoton().addActionListener(this);
+		panelOps.getBotonFrecuencia().addActionListener(this);
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String comandoDeAccion = e.getActionCommand();
-		this.opcion = "";
 
-		// Panel Consultas
-		String idiomaOrigen = panelConsulta.getComboBoxOrigen().getSelectedItem().toString();
-		String palabraBuscada = panelConsulta.getTextPalabra().getText();
-		String traduccion = panelConsulta.getTextTraduccion().getText();
-		String idiomaDestino = panelConsulta.getComboBoxDestino().getSelectedItem().toString();
-
-		// Panel Palabras
-		String palabraNueva = panelPalabras.getPalabraSpa().getText();
-		String palabraNuevaTrad = panelPalabras.getPalabraTradu().getText();
-		String idioma = panelPalabras.getComboBoxIdioma().getSelectedItem().toString();
 		try {
 			// Panel De Consultas
 			if (comandoDeAccion.equalsIgnoreCase("Limpiar")) {
 				panelConsulta.getTextPalabra().setText("");
 				panelConsulta.getTextTraduccion().setText("");
-			} else {
+			}
+			
+			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
+				
+				String idiomaOrigen = panelConsulta.getComboBoxOrigen().getSelectedItem().toString();
+				String palabraBuscada = panelConsulta.getTextPalabra().getText();
+				String traduccion = panelConsulta.getTextTraduccion().getText();
+				String idiomaDestino = panelConsulta.getComboBoxDestino().getSelectedItem().toString();
+				
 				String origen = (String) panelConsulta.getComboBoxOrigen().getSelectedItem();
 				String destino = (String) panelConsulta.getComboBoxDestino().getSelectedItem();
 				if (origen.equalsIgnoreCase(destino)) {
-					JOptionPane.showMessageDialog(this, "Verifica las entradas");
+					JOptionPane.showMessageDialog(this, "No se puede traducir al mismo idioma. :V");
 				}
-			}
-			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
-				opcion = "TRADUCIR PALABRA";
-				control.buscarTraduccion(opcion, palabraBuscada, idiomaOrigen, idiomaDestino, traduccion);
+				
+				control.buscarTraduccion(palabraBuscada, idiomaOrigen, idiomaDestino, traduccion);
 			}
 
-			// Panel de palabras
+			// Panel De Palabras
 			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
-				opcion = "AGREGAR PALABRA";
-				control.agregarPalabra(opcion, palabraNueva, palabraNuevaTrad, idioma);
-				JOptionPane.showMessageDialog(this, "La palabra fue agregada");
+				
+				String palabraNueva = panelPalabras.getPalabraSpa().getText();
+				String palabraNuevaTrad = panelPalabras.getPalabraTradu().getText();
+				String idioma = panelPalabras.getComboBoxIdioma().getSelectedItem().toString();
+				
+				try {					
+					control.agregarPalabra(palabraNueva, palabraNuevaTrad, idioma);
+					JOptionPane.showMessageDialog(this, "La palabra fue agregada");
+				} catch (Exception excepcion) {
+					this.mostrarError();
+				}
 			}
 
 			if (comandoDeAccion.equalsIgnoreCase("Limpiar") && e.getSource().equals(panelPalabras.getBotonLimpiar())) {
 				panelPalabras.getPalabraSpa().setText("");
 				panelPalabras.getPalabraTradu().setText("");
 			}
-			// Panel De Operaciones
+			// Panel De Opciones
 			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
-				opcion = "CARGAR DICCIONARIO";
-				control.cargarDiccionario(opcion);
+				control.cargarDiccionario();
+				
+				panelCantidad.setCantidadIngles(3);
+				panelCantidad.setCantidadFrances(4);
+				panelCantidad.setCantidadItaliano(4);
 			}
 
 			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
-				opcion = "FRECUENTES";
 				control.frecuentes();
 			}
 
 			// Panel cantidad
-			panelCantidad.setCantidadIngles(control.actualizarNumPalIng());
-			panelCantidad.setCantidadFrances(control.actualizarNumFr());
-			panelCantidad.setCantidadItaliano(control.actualizarNumIta());
 
 		} catch (NumberFormatException ex) {
 			mostrarError();
@@ -139,13 +140,4 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	public void mostrarError() {
 		JOptionPane.showMessageDialog(null, "Lo siento, ha ocurrido un error.");
 	}
-
-	public String getOpcion() {
-		return opcion;
-	}
-
-	public void setOpcion(String opcion) {
-		this.opcion = opcion;
-	}
-
 }
