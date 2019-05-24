@@ -135,15 +135,15 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			}
 			
 			if (comandoDeAccion.equalsIgnoreCase("ENG")) {
-				
+				control.agregarDiccionario("ENG");
 			}
 			
 			if (comandoDeAccion.equalsIgnoreCase("FRA")) {
-				
+				control.agregarDiccionario("FRA");
 			}
 			
 			if (comandoDeAccion.equalsIgnoreCase("ITA")) {
-				
+				control.agregarDiccionario("ITA");
 			}
 
 			// Panel cantidad

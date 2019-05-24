@@ -90,13 +90,13 @@ public class Control {
 	public void agregarDiccionario(String idioma) {
 		switch(idioma) {
 		case "ENG":
-			this.diccionarioEng.cargarDiccionario();
+			this.diccionarioEng.cargarDiccionario("./Diccionario/eng.properties");
 			break;
 		case "FRA":
-			this.diccionarioFra.cargarDiccionario();
+			this.diccionarioFra.cargarDiccionario("./Diccionario/fra.properties");;
 			break;
 		case "ITA":
-			this.diccionarioIta.cargarDiccionario();
+			this.diccionarioIta.cargarDiccionario("./Diccionario/ita.properties");;
 			break;
 		default:
 			break;

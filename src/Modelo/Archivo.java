@@ -22,20 +22,7 @@ public class Archivo {
 		this.idioma = "";
 	}
 
-	// Este metodo permite al usuario cargar un diccionario (Un archivo)
 
-	public void cargarDiccionario() {
-		JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
-		fc.showOpenDialog(fc);
-		this.archivo = fc.getSelectedFile(); // Devuelve el diccionario para ser leido
-
-		if (this.archivo.exists()) {
-			JOptionPane.showMessageDialog(null,
-					"El diccionario " + this.archivo.getName() + " fue cargado exitosamente.");
-		} else {
-			JOptionPane.showMessageDialog(null, "Lo siento el diccionario no pudo ser cargado");
-		}
-	}
 
 	// Este metodo escribi de a una linea en el archivo
 	public void agregarPalabra(String palabra, String traduccion, String idioma) {
