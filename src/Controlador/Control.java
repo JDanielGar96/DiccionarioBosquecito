@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.swing.JLabel;
 
-import Modelo.ArchivoAleatorio;
+import Modelo.Archivo;
 import Modelo.Diccionario;
 import Vista.VentanaPrincipal;
 
@@ -14,7 +14,7 @@ public class Control {
 	private Diccionario diccionarioEng;
 	private Diccionario diccionarioFra;
 	private Diccionario diccionarioIta;
-	private ArchivoAleatorio archivoAle;
+	private Archivo archivo;
 
 	public Control() {
 		this.ventana = new VentanaPrincipal(this);
@@ -24,26 +24,29 @@ public class Control {
 		this.diccionarioIta = new Diccionario("ITA");
 
 		try {
-			archivoAle = new ArchivoAleatorio();
+			archivo = new Archivo();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void cargarDiccionario() {
-		archivoAle.cargarDiccionario();
+		archivo.cargarDiccionario();
 	}
 	
 	public void agregarPalabra(String palabra, String traduccion, String idioma) {
 		switch (idioma) {
 		case "ENG":
 			this.diccionarioEng.agregarPalabra(palabra, traduccion);
+			this.archivo.agregarPalabra(palabra, traduccion, idioma);
 			break;
 		case "FRA":
 			this.diccionarioFra.agregarPalabra(palabra, traduccion);
+			this.archivo.agregarPalabra(palabra, traduccion, idioma);
 			break;
 		case "ITA":
 			this.diccionarioIta.agregarPalabra(palabra, traduccion);
+			this.archivo.agregarPalabra(palabra, traduccion, idioma);
 			break;
 		default:
 			break;

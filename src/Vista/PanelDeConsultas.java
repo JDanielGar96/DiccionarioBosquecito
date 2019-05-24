@@ -34,7 +34,7 @@ public class PanelDeConsultas extends JPanel {
 	private String[] opcionesTraduccion;
 
 	public PanelDeConsultas() {
-		// Inicializaci�n de variables
+		// Inicializacion de variables
 		opcionesTraduccion = new String[4];
 		opcionesTraduccion[0] = "ESP";
 		opcionesTraduccion[1] = "FR";
