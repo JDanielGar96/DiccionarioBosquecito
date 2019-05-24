@@ -6,8 +6,6 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
 import Controlador.Control;
 
 public class VentanaPrincipal extends JFrame implements ActionListener {
@@ -80,31 +78,31 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 				panelConsulta.getTextPalabra().setText("");
 				panelConsulta.getTextTraduccion().setText("");
 			}
-			
+
 			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
-				
+
 				String idiomaOrigen = panelConsulta.getComboBoxOrigen().getSelectedItem().toString();
 				String palabraBuscada = panelConsulta.getTextPalabra().getText();
 				String traduccion = panelConsulta.getTextTraduccion().getText();
 				String idiomaDestino = panelConsulta.getComboBoxDestino().getSelectedItem().toString();
-				
+
 				String origen = (String) panelConsulta.getComboBoxOrigen().getSelectedItem();
 				String destino = (String) panelConsulta.getComboBoxDestino().getSelectedItem();
 				if (origen.equalsIgnoreCase(destino)) {
 					JOptionPane.showMessageDialog(this, "No se puede traducir al mismo idioma. :V");
 				}
-				
+
 				control.buscarTraduccion(palabraBuscada, idiomaOrigen, idiomaDestino, traduccion);
 			}
 
 			// Panel De Palabras
 			if (comandoDeAccion.equalsIgnoreCase("Agregar")) {
-				
+
 				String palabraNueva = panelPalabras.getPalabraSpa().getText();
 				String palabraNuevaTrad = panelPalabras.getPalabraTradu().getText();
 				String idioma = panelPalabras.getComboBoxIdioma().getSelectedItem().toString();
-				
-				try {					
+
+				try {
 					control.agregarPalabra(palabraNueva, palabraNuevaTrad, idioma);
 					JOptionPane.showMessageDialog(this, "La palabra fue agregada");
 				} catch (Exception excepcion) {
@@ -119,7 +117,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			// Panel De Opciones
 			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
 				control.cargarDiccionario();
-				
+
 				panelCantidad.setCantidadIngles(3);
 				panelCantidad.setCantidadFrances(4);
 				panelCantidad.setCantidadItaliano(4);
