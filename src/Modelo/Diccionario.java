@@ -1,8 +1,10 @@
 package Modelo;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
-import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import java.util.Properties;
 
 /**
  * 
@@ -78,10 +80,34 @@ public class Diccionario {
 		return this.traducciones.size();
 	}
 	
-	public void cargarDiccionario() {
-    	JFileChooser fc =new JFileChooser();  
-	}
+	// Este metodo permite al usuario cargar un diccionario (Un archivo)
 
+	public void cargarDiccionario(String direccion) {
+		Properties propiedades = new Properties();
+		
+		try {
+			propiedades.load(new FileInputStream(direccion));
+		} catch (Exception e) {
+			System.out.println("No se puede abrir el archivo");
+		}
+		
+		this.agregarPalabras(propiedades.getProperty("diccionario.esp").split(","));
+		this.agregarTraducciones(propiedades.getProperty("diccionario.traduccion").split(",")); 
+	}
+	
+	public void agregarPalabras(String[] palabras) {
+		for(int i = 0; i < 0; i++) {
+			this.palabras.add(palabras[i]);
+		}
+	}
+	
+	public void agregarTraducciones(String[] palabras) {
+		for(int i = 0; i < 0; i++) {
+			this.traducciones.add(palabras[i]);
+		}
+	}
+	
+	
 	public String obtenerNombre() {
 		return nombre;
 	}

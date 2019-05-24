@@ -30,10 +30,6 @@ public class Control {
 		}
 	}
 
-	public void cargarDiccionario() {
-		archivo.cargarDiccionario();
-	}
-	
 	public void agregarPalabra(String palabra, String traduccion, String idioma) {
 		switch (idioma) {
 		case "ENG":
@@ -90,7 +86,23 @@ public class Control {
 		}
 		return traducido;
 	}
-
+	
+	public void agregarDiccionario(String idioma) {
+		switch(idioma) {
+		case "ENG":
+			this.diccionarioEng.cargarDiccionario("./Diccionario/eng.properties");
+			break;
+		case "FRA":
+			this.diccionarioFra.cargarDiccionario("./Diccionario/fra.properties");;
+			break;
+		case "ITA":
+			this.diccionarioIta.cargarDiccionario("./Diccionario/ita.properties");;
+			break;
+		default:
+			break;
+		}
+	}
+	
 	public void frecuentes() {
 
 	}
