@@ -118,15 +118,32 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			}
 			// Panel De Opciones
 			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
-				control.cargarDiccionario();
+				CargarDiccionario diccionario = new CargarDiccionario();
 				
-				panelCantidad.setCantidadIngles(3);
-				panelCantidad.setCantidadFrances(4);
-				panelCantidad.setCantidadItaliano(4);
+				diccionario.getBtnEng().addActionListener(this);
+				diccionario.getBtnFra().addActionListener(this);
+				diccionario.getBtnIta().addActionListener(this);
+
+//				
+//				panelCantidad.setCantidadIngles(3);
+//				panelCantidad.setCantidadFrances(4);
+//				panelCantidad.setCantidadItaliano(4);
 			}
 
 			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
 				control.frecuentes();
+			}
+			
+			if (comandoDeAccion.equalsIgnoreCase("ENG")) {
+				
+			}
+			
+			if (comandoDeAccion.equalsIgnoreCase("FRA")) {
+				
+			}
+			
+			if (comandoDeAccion.equalsIgnoreCase("ITA")) {
+				
 			}
 
 			// Panel cantidad
