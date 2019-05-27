@@ -51,14 +51,14 @@ public class Control {
 
 	public String buscarTraduccion( String palabraBuscada, 
 									String idiomaOrigen,
-									String idiomaDestino, 
-									String traduccion) {
-		String traducido = "";
+									String idiomaDestino ) {
+		String traduccion = "";
 		
-		if(idiomaOrigen.equalsIgnoreCase("ESP")) {				
+		if(idiomaOrigen.equalsIgnoreCase("ESP")) {
 			switch (idiomaDestino) {
 			case "ENG":
 				traduccion = this.diccionarioEng.traduccionPalabra(palabraBuscada);
+				System.out.print(traduccion);
 				break;
 			case "FRA":
 				traduccion = this.diccionarioFra.traduccionPalabra(palabraBuscada);
@@ -84,7 +84,7 @@ public class Control {
 				break;
 			}
 		}
-		return traducido;
+		return traduccion;
 	}
 	
 	public void agregarDiccionario(String idioma) {

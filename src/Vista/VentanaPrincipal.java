@@ -15,6 +15,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	 */
 
 	private static final long serialVersionUID = 1L;
+	
+	private CargarDiccionario diccionario;
 	private PanelDeImagen panelImagen;
 	private PanelDeConsultas panelConsulta;
 	private PanelDePalabras panelPalabras;
@@ -81,18 +83,16 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 			if (comandoDeAccion.equalsIgnoreCase("Traducir")) {
 
+				String palabra = panelConsulta.getTextPalabra().getText();
 				String idiomaOrigen = panelConsulta.getComboBoxOrigen().getSelectedItem().toString();
-				String palabraBuscada = panelConsulta.getTextPalabra().getText();
-				String traduccion = panelConsulta.getTextTraduccion().getText();
+				
 				String idiomaDestino = panelConsulta.getComboBoxDestino().getSelectedItem().toString();
 
-				String origen = (String) panelConsulta.getComboBoxOrigen().getSelectedItem();
-				String destino = (String) panelConsulta.getComboBoxDestino().getSelectedItem();
-				if (origen.equalsIgnoreCase(destino)) {
+				if (idiomaOrigen.equalsIgnoreCase(idiomaDestino)) {
 					JOptionPane.showMessageDialog(this, "No se puede traducir al mismo idioma. :V");
 				}
-
-				control.buscarTraduccion(palabraBuscada, idiomaOrigen, idiomaDestino, traduccion);
+				
+				panelConsulta.getTextTraduccion().setText(control.buscarTraduccion(palabra, idiomaOrigen, idiomaDestino));
 			}
 
 			// Panel De Palabras
@@ -116,34 +116,28 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			}
 			// Panel De Opciones
 			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
-				CargarDiccionario diccionario = new CargarDiccionario();
+				diccionario = new CargarDiccionario();
 				
 				diccionario.getBtnEng().addActionListener(this);
 				diccionario.getBtnFra().addActionListener(this);
 				diccionario.getBtnIta().addActionListener(this);
-
-//				
-//				panelCantidad.setCantidadIngles(3);
-//				panelCantidad.setCantidadFrances(4);
-//				panelCantidad.setCantidadItaliano(4);
 			}
 
 			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
 				control.frecuentes();
 			}
-			
 			if (comandoDeAccion.equalsIgnoreCase("ENG")) {
 				control.agregarDiccionario("ENG");
+				diccionario.dispose();
 			}
-			
 			if (comandoDeAccion.equalsIgnoreCase("FRA")) {
 				control.agregarDiccionario("FRA");
+				diccionario.dispose();
 			}
-			
 			if (comandoDeAccion.equalsIgnoreCase("ITA")) {
 				control.agregarDiccionario("ITA");
+				diccionario.dispose();	
 			}
-
 			// Panel cantidad
 
 		} catch (NumberFormatException ex) {

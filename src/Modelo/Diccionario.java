@@ -49,7 +49,9 @@ public class Diccionario {
 	 * @return String
 	 */
 	public String traduccionPalabra(String palabra) {
+		System.out.println(this.palabras.size());
 		for(int i = 0; i < this.palabras.size(); i++) {
+			System.out.println(this.palabras.get(i));
 			if(this.palabras.get(i).equalsIgnoreCase(palabra)) {
 				return this.traducciones.get(i);
 			}
@@ -92,17 +94,25 @@ public class Diccionario {
 		}
 		
 		this.agregarPalabras(propiedades.getProperty("diccionario.esp").split(","));
-		this.agregarTraducciones(propiedades.getProperty("diccionario.traduccion").split(",")); 
+		this.agregarTraducciones(propiedades.getProperty("diccionario.traduccion").split(","));
 	}
 	
+	/**
+	 * Agrega palabras al diccionario.
+	 * @param palabras
+	 */
 	public void agregarPalabras(String[] palabras) {
-		for(int i = 0; i < 0; i++) {
+		for(int i = 0; i < palabras.length; i++) {
 			this.palabras.add(palabras[i]);
 		}
 	}
 	
+	/**
+	 * Agrega traducciones al diccionario.
+	 * @param palabras
+	 */
 	public void agregarTraducciones(String[] palabras) {
-		for(int i = 0; i < 0; i++) {
+		for(int i = 0; i < palabras.length; i++) {
 			this.traducciones.add(palabras[i]);
 		}
 	}

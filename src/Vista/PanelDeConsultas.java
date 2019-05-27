@@ -37,8 +37,8 @@ public class PanelDeConsultas extends JPanel {
 		// Inicializacion de variables
 		opcionesTraduccion = new String[4];
 		opcionesTraduccion[0] = "ESP";
-		opcionesTraduccion[1] = "FR";
-		opcionesTraduccion[2] = "ING";
+		opcionesTraduccion[1] = "FRA";
+		opcionesTraduccion[2] = "ENG";
 		opcionesTraduccion[3] = "ITA";
 
 		tituloConsulta = new JLabel("Consulta de traducciones.");

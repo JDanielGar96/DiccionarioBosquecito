@@ -39,8 +39,8 @@ public class PanelDePalabras extends JPanel {
 		palabraTradu = new JTextField();
 
 		comboBoxIdioma = new JComboBox<String>();
-		comboBoxIdioma.addItem("FR");
-		comboBoxIdioma.addItem("ING");
+		comboBoxIdioma.addItem("FRA");
+		comboBoxIdioma.addItem("ENG");
 		comboBoxIdioma.addItem("ITA");
 
 		botonAgregar = new JButton("Agregar");
