@@ -28,7 +28,7 @@ public class Archivo {
 	private long numeroDeRegistros;
 
 	public Archivo() throws IOException {
-		this.archivo = new File("./Archivo/Archivo.txt");
+		this.archivo = new File("./Archivo/Archivo.dat");
 		this.accesoRandomArchivo = new RandomAccessFile(this.archivo, "rw");
 		this.isr = new InputStreamReader(System.in);
 		this.linea = new BufferedReader(isr);
