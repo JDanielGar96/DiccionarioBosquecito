@@ -124,7 +124,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			}
 
 			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
-				control.frecuentes();
+//				control.frecuentes();
 			}
 			if (comandoDeAccion.equalsIgnoreCase("ENG")) {
 				control.agregarDiccionario("ENG");
