@@ -9,19 +9,20 @@ import javax.swing.SwingConstants;
 public class PanelCantidad extends JPanel {
 
 	/**
-	 * 
+	 * Es el panel que vera el usuario en la ventana principal que muestra la
+	 * cantidad de palabras que hay por idioma en los diccionarios.
 	 */
-	
+
 	private static final long serialVersionUID = 1L;
-	
-	private JLabel tituloCantidad;
-	private JLabel tituloDiccionario;
-	private JLabel ingles;
-	private JLabel frances;
-	private JLabel italiano;
-	private JLabel cantidadIngles;
-	private JLabel cantidadFrances;
-	private JLabel cantidadItaliano;
+
+	private JLabel tituloCantidad; // Titulo intuitivo para el usuario
+	private JLabel tituloDiccionario; // Titulo del diccionario
+	private JLabel ingles; // Titulo de ingles
+	private JLabel frances; // Titulo de frances
+	private JLabel italiano; // Titulo de italiano
+	private JLabel cantidadIngles; // Es donde se colocaran las palabras que hay de ingles en el diccioanrio
+	private JLabel cantidadFrances; // Es donde se colocaran las palabras que hay de Frances en el diccioanrio
+	private JLabel cantidadItaliano; // Es donde se colocaran las palabras que hay de Italiano en el diccioanrio
 
 	public PanelCantidad() {
 		// Inicializo variables
@@ -30,21 +31,11 @@ public class PanelCantidad extends JPanel {
 		ingles = new JLabel("Ingles:");
 		frances = new JLabel("Frances:");
 		italiano = new JLabel("Italiano:");
-		
+
 		cantidadIngles = new JLabel("0");
 		cantidadFrances = new JLabel("0");
 		cantidadItaliano = new JLabel("0");
 
-
-		Initialize();
-		setVisible(true);
-	}
-
-	private void Initialize() {
-		setBounds(915, 11, 269, 189);
-		setBackground(Color.GRAY);
-		setLayout(null);
-		
 		// Agrego variables al panel
 		add(tituloCantidad);
 		add(tituloDiccionario);
@@ -54,6 +45,15 @@ public class PanelCantidad extends JPanel {
 		add(cantidadIngles);
 		add(cantidadFrances);
 		add(cantidadItaliano);
+
+		Initialize();
+		setVisible(true);
+	}
+
+	private void Initialize() {
+		setBounds(915, 11, 269, 189);
+		setBackground(Color.GRAY);
+		setLayout(null);
 
 		// Labels o etiquetas
 		tituloCantidad.setHorizontalAlignment(SwingConstants.CENTER);
@@ -98,16 +98,26 @@ public class PanelCantidad extends JPanel {
 
 	}
 
-
+	/*
+	 * Este metodo coloca la cantidad de palabras que hay de ingles en la etiqueta
+	 * cantidadIngles
+	 */
 	public void setCantidadIngles(int cantidadIngles) {
 		this.cantidadIngles.setText(String.valueOf(cantidadIngles));
 	}
 
-
+	/*
+	 * Este metodo coloca la cantidad de palabras que hay de frances en la etiqueta
+	 * cantidadIngles
+	 */
 	public void setCantidadFrances(int cantidadFrances) {
 		this.cantidadFrances.setText(String.valueOf(cantidadFrances));
 	}
 
+	/*
+	 * Este metodo coloca la cantidad de palabras que hay de Italiano en la etiqueta
+	 * cantidadIngles
+	 */
 	public void setCantidadItaliano(int cantidadItaliano) {
 		this.cantidadItaliano.setText(String.valueOf(cantidadItaliano));
 	}

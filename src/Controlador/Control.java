@@ -8,14 +8,27 @@ import Modelo.Archivo;
 import Modelo.Diccionario;
 import Vista.VentanaPrincipal;
 
+/**
+ * Controla las clases que se encuentran en los paquetes Modelo y Vista,
+ * utilizando distintos metodos que haran la labor de comunicar las clases de
+ * dichos paquetes. Generando objetos de tipo VentanaPrincial, Diccionario y
+ * Archivo
+ * 
+ * @author Oscar Romero y Daniel Garcia
+ *
+ */
 public class Control {
 
-	private VentanaPrincipal ventana;
-	private Diccionario diccionarioEng;
-	private Diccionario diccionarioFra;
-	private Diccionario diccionarioIta;
+	private VentanaPrincipal ventana; // Sera la ventana que va a ver el usuario
+	private Diccionario diccionarioEng; // Sera el diccionario de ingles que cargara el usuario
+	private Diccionario diccionarioFra; // Sera el diccionario de Frances que cargara el usuario
+	private Diccionario diccionarioIta; // Sera el diccionario de Italiano que cargara el usuario
 	private Archivo archivo;
 
+	/*
+	 * Este es el constructor de la clase donde se inicializan las variables creando
+	 * objetos de las clases respectivas
+	 */
 	public Control() {
 		this.ventana = new VentanaPrincipal(this);
 
@@ -30,6 +43,12 @@ public class Control {
 		}
 	}
 
+	/*
+	 * Este metodo se encarga de agregar las palabras que recibe de la vista a los
+	 * diccionarios respectivos de cada idioma por medio de las parametros de
+	 * cadenas de texto palabra, traduccion e idioma. A su vez conecta con el metodo
+	 * de la clase Archivo donde escribira la palabra agregada.
+	 */
 	public void agregarPalabra(String palabra, String traduccion, String idioma) {
 		switch (idioma) {
 		case "ENG":
@@ -49,12 +68,21 @@ public class Control {
 		}
 	}
 
-	public String buscarTraduccion( String palabraBuscada, 
-									String idiomaOrigen,
-									String idiomaDestino ) {
+	/*
+	 * Este metodo buscara la traduccion de una palabra introducida por el usuario
+	 * en los objetis de la clase diccionario y utilizando el metro
+	 * traduccionPalabra de dicha clase. Esto lo hara recibiendo como parametros la
+	 * palabra que se busca traducir en espanol, el idioma de la palabra ingresada
+	 * (ESP) y el idioma del que quiere saber la traduccion, retornando finalmente
+	 * la palabra traducida en ese idioma. En caso de que el usuario seleccione que
+	 * la palabra buscada no es de idioma espanol se usuara el metodo
+	 * traduccionInversaPalabra que retornada la traduccion de dicha palabra en el
+	 * idioma en que se busca traducir
+	 */
+	public String buscarTraduccion(String palabraBuscada, String idiomaOrigen, String idiomaDestino) {
 		String traduccion = "";
-		
-		if(idiomaOrigen.equalsIgnoreCase("ESP")) {
+
+		if (idiomaOrigen.equalsIgnoreCase("ESP")) {
 			switch (idiomaDestino) {
 			case "ENG":
 				traduccion = this.diccionarioEng.traduccionPalabra(palabraBuscada);
@@ -86,23 +114,31 @@ public class Control {
 		}
 		return traduccion;
 	}
-	
+
+	/*
+	 * Este metodo conecta la vista cuando se selecciona el boton Cargar Diccionario
+	 * con el objeto de la clase diccionario y utiliza su metodo cargarDiccionario
+	 * dependiendo del diccionario que desee cargar el usario cuando selecciona en
+	 * la clase CargarDiccionario.
+	 */
 	public void agregarDiccionario(String idioma) {
-		switch(idioma) {
+		switch (idioma) {
 		case "ENG":
 			this.diccionarioEng.cargarDiccionario("./Diccionario/eng.properties");
 			break;
 		case "FRA":
-			this.diccionarioFra.cargarDiccionario("./Diccionario/fra.properties");;
+			this.diccionarioFra.cargarDiccionario("./Diccionario/fra.properties");
+			;
 			break;
 		case "ITA":
-			this.diccionarioIta.cargarDiccionario("./Diccionario/ita.properties");;
+			this.diccionarioIta.cargarDiccionario("./Diccionario/ita.properties");
+			;
 			break;
 		default:
 			break;
 		}
 	}
-	
+
 	private void guardarTraduccionExitosa(String traduccion) {
 
 	}

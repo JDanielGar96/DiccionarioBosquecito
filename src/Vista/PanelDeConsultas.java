@@ -14,6 +14,10 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
+/**
+ * Esta clase se encarga de generar un panel que sera agregado a la ventana
+ * principal. Donde el usuario realizara las traducciones de las palabras
+ */
 public class PanelDeConsultas extends JPanel {
 
 	private JLabel tituloConsulta;
@@ -123,7 +127,7 @@ public class PanelDeConsultas extends JPanel {
 
 		botonLimpiar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		botonLimpiar.setBounds(363, 189, 152, 50);
-	}	
+	}
 
 	public JButton getBotonTraducir() {
 		return botonTraducir;
@@ -172,6 +176,5 @@ public class PanelDeConsultas extends JPanel {
 	public void setComboBoxDestino(JComboBox<?> comboBoxDestino) {
 		this.comboBoxDestino = comboBoxDestino;
 	}
-	
-	
+
 }

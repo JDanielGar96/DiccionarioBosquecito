@@ -9,17 +9,23 @@ import javax.swing.JButton;
 
 public class PanelOpciones extends JPanel {
 
-	private JLabel tituloOpciones;
-	private JButton botonCargar;
-	private JButton botonFrecuencia;
+	/**
+	 * Esta clase se encarga de generar un panel que sera agregado a la ventana
+	 * principal, donde el usuario podra cargar diccionarios y ademas ver las
+	 * traducciones frecuentes
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel tituloOpciones; // Titulo intuitivo para el usuario
+	private JButton botonCargar; // Sera el boton que permita cargar los diccionarios
+	private JButton botonFrecuencia; // Sera el boton que cargara las traducciones mas comunes
 
 	public PanelOpciones() {
-		// Inicializo variables
+		// Se inicializan las variables de la clase
 		tituloOpciones = new JLabel("Opciones");
 		botonCargar = new JButton("Cargar Diccionario");
-		botonFrecuencia = new JButton("Palabras Frecuentes");
+		botonFrecuencia = new JButton("Traducciones Frecuentes");
 
-		// Agrego variables al panel
+		// Se agregan las variables a la clase
 		add(tituloOpciones);
 		add(botonCargar);
 		add(botonFrecuencia);
@@ -44,7 +50,7 @@ public class PanelOpciones extends JPanel {
 
 		botonFrecuencia.setFont(new Font("Tahoma", Font.BOLD, 15));
 		botonFrecuencia.setBounds(10, 155, 249, 50);
-		
+
 		setVisible(true);
 	}
 

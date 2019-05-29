@@ -13,23 +13,30 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
+/**
+ * Es el panel que se mostrara en la ventana princial para que el usuario pueda
+ * agregar palabras a los diferentes diccionarios.
+ * 
+ * @author Oscar Romero y Daniel Garcia
+ *
+ */
 public class PanelDePalabras extends JPanel {
 
-	private JLabel tituloAgregarPalabras;
-	private JLabel palabraEspanol;
-	private JLabel palabraTraducida;
-	private JLabel idiomaTraduccion;
+	private JLabel tituloAgregarPalabras; // Titulo intuitivo del panel para el usuario
+	private JLabel palabraEspanol; // Titulo de la palabra en espanol
+	private JLabel palabraTraducida; // Titulo de la palabra traducida
+	private JLabel idiomaTraduccion; // Titulo del idioma de la palabra traducida
 
-	private JTextField palabraSpa;
-	private JTextField palabraTradu;
+	private JTextField palabraSpa; // Campo de texto donde el usuario colocara la palabra en espanol
+	private JTextField palabraTradu; // Campo de texto donde el usuario colocara la palabra traducida
 
-	private JComboBox<String> comboBoxIdioma;
-
-	private JButton botonLimpiar;
-	private JButton botonAgregar;
+	private JComboBox<String> comboBoxIdioma; // Caja de texto que permite al usuario elegir el idioma de la palabra
+												// traducida
+	private JButton botonLimpiar; // Boton que limpia el panel
+	private JButton botonAgregar; // Boton que agrega la palabra traducida
 
 	public PanelDePalabras() {
-		// Inicializo variables
+		// Inicializa las variables de la clase
 		tituloAgregarPalabras = new JLabel("Agregar palabras.");
 		palabraEspanol = new JLabel("Palabra (ESP)");
 		palabraTraducida = new JLabel("Palabra traducida");
@@ -46,7 +53,7 @@ public class PanelDePalabras extends JPanel {
 		botonAgregar = new JButton("Agregar");
 		botonLimpiar = new JButton("Limpiar");
 
-		// Agrego variables al panel
+		// Agrega las variables a la clase
 		add(tituloAgregarPalabras);
 		add(palabraEspanol);
 		add(palabraTraducida);
@@ -111,40 +118,20 @@ public class PanelDePalabras extends JPanel {
 		return palabraSpa;
 	}
 
-	public void setPalabraSpa(JTextField palabraSpa) {
-		this.palabraSpa = palabraSpa;
-	}
-
 	public JTextField getPalabraTradu() {
 		return palabraTradu;
-	}
-
-	public void setPalabraTradu(JTextField palabraTradu) {
-		this.palabraTradu = palabraTradu;
 	}
 
 	public JComboBox<String> getComboBoxIdioma() {
 		return comboBoxIdioma;
 	}
 
-	public void setComboBoxIdioma(JComboBox<String> comboBoxIdioma) {
-		this.comboBoxIdioma = comboBoxIdioma;
-	}
-
 	public JButton getBotonLimpiar() {
 		return botonLimpiar;
 	}
 
-	public void setBotonLimpiar(JButton botonLimpiar) {
-		this.botonLimpiar = botonLimpiar;
-	}
-
 	public JButton getBotonAgregar() {
 		return botonAgregar;
-	}
-
-	public void setBotonAgregar(JButton botonAgregar) {
-		this.botonAgregar = botonAgregar;
 	}
 
 }
