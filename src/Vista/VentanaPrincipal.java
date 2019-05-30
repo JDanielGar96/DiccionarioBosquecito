@@ -11,7 +11,7 @@ import Controlador.Control;
 public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	/**
-	 * Esta clase es la ventana principal de la vista la cual será vista todo el
+	 * Esta clase es la ventana principal de la vista la cual serï¿½ vista todo el
 	 * tiempo por el usuario. Creando objetos de los paneles que estan contenidos
 	 * dentro de la misma y un objeto de la clase controlador. Implementando un
 	 * escuchador y un metodo de acciones realizadas por el usuario.
@@ -79,7 +79,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	/*
 	 * (Es el metodo que se encargara de comunicarse con la clase Control, por medio
 	 * de las acciones que realiza el usuario y segun estas realizar una tarea.
-	 * Mientras que envia las acciones a la clase Control para que puedan así
+	 * Mientras que envia las acciones a la clase Control para que puedan asï¿½
 	 * comunicarle a esta las mismas-Javadoc)
 	 * 
 	 * @see
@@ -124,6 +124,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 				try {
 					control.agregarPalabra(palabraNueva, palabraNuevaTrad, idioma);
+					this.actualizarCantidadPalabras();
 					JOptionPane.showMessageDialog(this, "La palabra fue agregada");
 				} catch (Exception excepcion) {
 					this.mostrarError();
@@ -146,14 +147,17 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			}
 			if (comandoDeAccion.equalsIgnoreCase("ENG")) {
 				control.agregarDiccionario("ENG");
+				this.actualizarCantidadPalabras();
 				diccionario.dispose();
 			}
 			if (comandoDeAccion.equalsIgnoreCase("FRA")) {
 				control.agregarDiccionario("FRA");
+				this.actualizarCantidadPalabras();
 				diccionario.dispose();
 			}
 			if (comandoDeAccion.equalsIgnoreCase("ITA")) {
 				control.agregarDiccionario("ITA");
+				this.actualizarCantidadPalabras();
 				diccionario.dispose();
 			}
 
@@ -172,6 +176,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			mostrarError();
 			ex.printStackTrace();
 		}
+	}
+	
+	public void actualizarCantidadPalabras() {
+		int[] numeroPalabras = this.control.actualizarNumeroPalabras();
+		panelCantidad.setCantidadIngles(numeroPalabras[0]);
+		panelCantidad.setCantidadFrances(numeroPalabras[1]);
+		panelCantidad.setCantidadItaliano(numeroPalabras[2]);
 	}
 
 	/*

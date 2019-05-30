@@ -143,16 +143,16 @@ public class Control {
 
 	}
 
-	public JLabel actualizarNumPalIng() {
-		return null;
-	}
-
-	public JLabel actualizarNumFr() {
-		return null;
-	}
-
-	public JLabel actualizarNumIta() {
-		return null;
+	public int[] actualizarNumeroPalabras() {
+		int[] numeroPalabras = new int[3];
+		
+		numeroPalabras[0] = this.diccionarioEng.contarTraducciones();
+		
+		System.out.println("Numero de traducciones en ingles " + numeroPalabras[0]);
+		numeroPalabras[1] = this.diccionarioFra.contarTraducciones();
+		numeroPalabras[2] = this.diccionarioIta.contarTraducciones();
+		
+		return numeroPalabras;
 	}
 
 }

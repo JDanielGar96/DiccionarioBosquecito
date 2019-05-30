@@ -49,7 +49,6 @@ public class Diccionario {
 	 * @return String
 	 */
 	public String traduccionPalabra(String palabra) {
-		System.out.println(this.palabras.size());
 		for(int i = 0; i < this.palabras.size(); i++) {
 			System.out.println(this.palabras.get(i));
 			if(this.palabras.get(i).equalsIgnoreCase(palabra)) {
