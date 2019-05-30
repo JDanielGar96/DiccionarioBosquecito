@@ -3,6 +3,7 @@ package Controlador;
 import java.io.IOException;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import Modelo.Archivo;
 import Modelo.Diccionario;
@@ -86,7 +87,6 @@ public class Control {
 			switch (idiomaDestino) {
 			case "ENG":
 				traduccion = this.diccionarioEng.traduccionPalabra(palabraBuscada);
-				System.out.print(traduccion);
 				break;
 			case "FRA":
 				traduccion = this.diccionarioFra.traduccionPalabra(palabraBuscada);
@@ -128,7 +128,6 @@ public class Control {
 			break;
 		case "FRA":
 			this.diccionarioFra.cargarDiccionario("./Diccionario/fra.properties");
-			;
 			break;
 		case "ITA":
 			this.diccionarioIta.cargarDiccionario("./Diccionario/ita.properties");
@@ -137,10 +136,6 @@ public class Control {
 		default:
 			break;
 		}
-	}
-
-	private void guardarTraduccionExitosa(String traduccion) {
-
 	}
 
 	public int[] actualizarNumeroPalabras() {

@@ -108,9 +108,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 				if (idiomaOrigen.equalsIgnoreCase(idiomaDestino)) {
 					JOptionPane.showMessageDialog(this, "No se puede traducir al mismo idioma. :V");
 				}
-
-				panelConsulta.getTextTraduccion()
-						.setText(control.buscarTraduccion(palabra, idiomaOrigen, idiomaDestino));
+				
+				String traduccion = control.buscarTraduccion(palabra, idiomaOrigen, idiomaDestino);
+				if(traduccion != null) {					
+					panelConsulta.getTextTraduccion().setText(traduccion);
+				} else {
+					JOptionPane.showMessageDialog(null, "No se encontro traduccion");
+				}
 			}
 
 			// Panel De Palabras
