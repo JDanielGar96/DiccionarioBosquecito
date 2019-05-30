@@ -26,8 +26,8 @@ public class Archivo {
 	private String linea_Archivo;
 
 	private int clave; // Va a asignar un numero automaticamente a cada registro - 4 bites
-	private String palabraEsp; // 100 caracteres maximo - 200 bites
-	private String palabraTraducida; // 100 caracteres maximo - 200 bites
+	private String palabraEsp; // 25 caracteres maximo - 50 bites
+	private String palabraTraducida; // 25 caracteres maximo - 50 bites
 	private String idioma; // 25 caracteres maximo - 50 bites
 
 	private static int tamanoDelRegistro; // va a controlar el numero de bites por registro
@@ -45,7 +45,7 @@ public class Archivo {
 		this.palabraTraducida = "";
 		this.idioma = "";
 
-		this.tamanoDelRegistro = 454;
+		this.tamanoDelRegistro = 154;
 		this.numeroDeRegistros = 0;
 
 	}
@@ -69,22 +69,22 @@ public class Archivo {
 
 			// Deja las cadenas de texto de las variables en la longitud adecuada
 			// es decir en la longitud definida al inicio de esta clase
-			if (this.palabraEsp.length() < 100) {
-				for (int i = this.palabraEsp.length(); i < 100; i++)
+			if (this.palabraEsp.length() < 25) {
+				for (int i = this.palabraEsp.length(); i < 25; i++)
 					this.palabraEsp = this.palabraEsp + " ";
 			}
-			if (this.palabraTraducida.length() < 100) {
-				for (int i = this.palabraTraducida.length(); i < 100; i++)
+			if (this.palabraTraducida.length() < 25) {
+				for (int i = this.palabraTraducida.length(); i < 25; i++)
 					this.palabraTraducida = this.palabraTraducida + " ";
 			}
-			if (this.idioma.length() < 40) {
-				for (int i = this.idioma.length(); i < 40; i++)
+			if (this.idioma.length() < 25) {
+				for (int i = this.idioma.length(); i < 25; i++)
 					this.idioma = this.idioma + " ";
 
 			} else {
 				this.palabraEsp = this.palabraEsp.substring(0, 25);
-				this.palabraTraducida = this.palabraTraducida.substring(0, 35);
-				this.idioma = this.idioma.substring(0, 40);
+				this.palabraTraducida = this.palabraTraducida.substring(0, 25);
+				this.idioma = this.idioma.substring(0, 25);
 			}
 
 			// Guarda o escribe en el archivo lo recibido
@@ -119,13 +119,13 @@ public class Archivo {
 //			this.clave = this.linea.read();
 //
 //			// Se lee la cadena de texto
-//			for (int i = 0; i < 100; ++i) {
+//			for (int i = 0; i < 25; ++i) {
 //				this.palabraEsp += this.linea.readLine();
 //			}
-//			for (int i = 0; i < 100; ++i) {
+//			for (int i = 0; i < 25; ++i) {
 //				this.palabraTraducida += linea.readLine();
 //			}
-//			for (int i = 0; i < 50; ++i) {
+//			for (int i = 0; i < 25; ++i) {
 //				this.idioma += linea.read();
 //			}
 //

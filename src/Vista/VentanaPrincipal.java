@@ -54,7 +54,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	private void Initialize() {
 
-		setTitle("Diccionario - Traductor");
+		setTitle("Traductor El Bosquecito");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./Assets/Logo.png"));
 		getContentPane().setLayout(null);
 		setResizable(false);
