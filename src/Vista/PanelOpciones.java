@@ -14,7 +14,7 @@ public class PanelOpciones extends JPanel {
 	 * principal, donde el usuario podra cargar diccionarios y ademas ver las
 	 * traducciones frecuentes
 	 */
-	private static final long serialVersionUID = 1L;
+
 	private JLabel tituloOpciones; // Titulo intuitivo para el usuario
 	private JButton botonCargar; // Sera el boton que permita cargar los diccionarios
 	private JButton botonFrecuencia; // Sera el boton que cargara las traducciones mas comunes

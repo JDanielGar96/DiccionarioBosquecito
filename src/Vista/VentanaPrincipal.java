@@ -19,8 +19,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	 * @author Oscar Romero y Daniel Garcia
 	 */
 
-	private static final long serialVersionUID = 1L;
-
 	private VentanaDeCarga diccionario; // Panel que se mostrara cuando el usuario desee cargar un diccionario
 	private PanelDeImagen panelImagen; // Sera la imagen que muestra la ventana principal
 	private PanelDeConsultas panelConsulta; // Sera donde el usuario seleccione operaciones de traduccion
@@ -108,9 +106,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 				if (idiomaOrigen.equalsIgnoreCase(idiomaDestino)) {
 					JOptionPane.showMessageDialog(this, "No se puede traducir al mismo idioma. :V");
 				}
-				
+
 				String traduccion = control.buscarTraduccion(palabra, idiomaOrigen, idiomaDestino);
-				if(traduccion != null) {					
+				if (traduccion != null) {
 					panelConsulta.getTextTraduccion().setText(traduccion);
 				} else {
 					JOptionPane.showMessageDialog(null, "No se encontro traduccion");
@@ -179,7 +177,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public void actualizarCantidadPalabras() {
 		int[] numeroPalabras = this.control.actualizarNumeroPalabras();
 		panelCantidad.setCantidadIngles(numeroPalabras[0]);

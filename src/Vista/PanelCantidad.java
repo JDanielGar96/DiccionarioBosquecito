@@ -13,8 +13,6 @@ public class PanelCantidad extends JPanel {
 	 * cantidad de palabras que hay por idioma en los diccionarios.
 	 */
 
-	private static final long serialVersionUID = 1L;
-
 	private JLabel tituloCantidad; // Titulo intuitivo para el usuario
 	private JLabel tituloDiccionario; // Titulo del diccionario
 	private JLabel ingles; // Titulo de ingles
