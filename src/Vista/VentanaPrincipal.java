@@ -167,9 +167,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 			if (comandoDeAccion.equalsIgnoreCase("Traducciones Frecuentes")) {
 				frecuentes = new VentanaFrecuentes();
-				String palabrasFrecuentes = " |Hola | Hello | Ingles | " + "\r\n";
-//				control.frecuentes();
-				frecuentes.setResultados(palabrasFrecuentes);
+				frecuentes.setResultados(this.control.obtenerPalabrasFrecuentes());
 			}
 
 			// Panel cantidad

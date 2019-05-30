@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import Modelo.ArchivadorFrecuencia;
 import Modelo.Archivo;
 import Modelo.Diccionario;
 import Vista.VentanaPrincipal;
@@ -25,6 +26,7 @@ public class Control {
 	private Diccionario diccionarioFra; // Sera el diccionario de Frances que cargara el usuario
 	private Diccionario diccionarioIta; // Sera el diccionario de Italiano que cargara el usuario
 	private Archivo archivo;
+	private ArchivadorFrecuencia frecuencia;
 
 	/*
 	 * Este es el constructor de la clase donde se inicializan las variables creando
@@ -32,6 +34,7 @@ public class Control {
 	 */
 	public Control() {
 		this.ventana = new VentanaPrincipal(this);
+		this.frecuencia = new ArchivadorFrecuencia();
 
 		this.diccionarioEng = new Diccionario("ENG");
 		this.diccionarioFra = new Diccionario("FRA");
@@ -97,6 +100,7 @@ public class Control {
 			default:
 				break;
 			}
+			this.frecuencia.agregarRegistro(palabraBuscada);
 		} else {
 			switch (idiomaOrigen) {
 			case "ENG":
@@ -111,6 +115,7 @@ public class Control {
 			default:
 				break;
 			}
+			this.frecuencia.agregarRegistro(palabraBuscada);
 		}
 		return traduccion;
 	}
@@ -136,6 +141,11 @@ public class Control {
 		default:
 			break;
 		}
+	}
+	
+	public String obtenerPalabrasFrecuentes() {
+		this.frecuencia.escribirRegistros();
+		return this.frecuencia.obtenerFrecuenciaPalabras();
 	}
 
 	public int[] actualizarNumeroPalabras() {
