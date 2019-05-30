@@ -36,7 +36,6 @@ public class VentanaFrecuentes extends JFrame {
 		getContentPane().setBackground(Color.BLACK);
 		;
 		setBounds(100, 100, 500, 350);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
 		// Etiqueta
