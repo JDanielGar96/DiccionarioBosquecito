@@ -21,12 +21,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	private CargarDiccionario diccionario; // Panel que se mostrara cuando el usuario desee cargar un diccionario
+	private VentanaDeCarga diccionario; // Panel que se mostrara cuando el usuario desee cargar un diccionario
 	private PanelDeImagen panelImagen; // Sera la imagen que muestra la ventana principal
 	private PanelDeConsultas panelConsulta; // Sera donde el usuario seleccione operaciones de traduccion
 	private PanelDePalabras panelPalabras; // Sera donde el usuario agregue palabras a los diccionarios
 	private PanelCantidad panelCantidad; // Mostrara la cantidad de palabras por idioma que hay en los diccionarios
 	private PanelOpciones panelOps; // Mostrara los botones cargar diccionario y traducciones frecuentes
+	private VentanaFrecuentes frecuentes; // Mostrara las traducciones mas buscadas por los usuarios
 
 	private Control control; // Es el objeto que servira para comunicarse con el la clase Control
 
@@ -137,15 +138,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			// Se determinan las comunicaciones y pasos a seguir por la clase segun lo que
 			// haga el usuario en este panel
 			if (comandoDeAccion.equalsIgnoreCase("Cargar Diccionario")) {
-				diccionario = new CargarDiccionario();
+				diccionario = new VentanaDeCarga();
 
 				diccionario.getBtnEng().addActionListener(this);
 				diccionario.getBtnFra().addActionListener(this);
 				diccionario.getBtnIta().addActionListener(this);
-			}
-
-			if (comandoDeAccion.equalsIgnoreCase("Palabras Frecuentes")) {
-//				control.frecuentes();
 			}
 			if (comandoDeAccion.equalsIgnoreCase("ENG")) {
 				control.agregarDiccionario("ENG");
@@ -159,9 +156,17 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 				control.agregarDiccionario("ITA");
 				diccionario.dispose();
 			}
+
+			if (comandoDeAccion.equalsIgnoreCase("Traducciones Frecuentes")) {
+				frecuentes = new VentanaFrecuentes();
+				String palabrasFrecuentes = " |Hola | Hello | Ingles | " + "\r\n";
+//				control.frecuentes();
+				frecuentes.setResultados(palabrasFrecuentes);
+			}
+
 			// Panel cantidad
-			// Se determinan las comunicaciones y pasos a seguir por la clase segun lo que
-			// haga el usuario en este panel
+			// Muestra la cantidad de palabras que hay por idioma en cada diccionario
+			// respectivo
 
 		} catch (NumberFormatException ex) {
 			mostrarError();

@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JMenuBar;
 
-public class CargarDiccionario extends JFrame {
+public class VentanaDeCarga extends JFrame {
 
 	private JButton btnFra;
 	private JButton btnEng;
@@ -19,7 +19,7 @@ public class CargarDiccionario extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public CargarDiccionario() {
+	public VentanaDeCarga() {
 		initialize();
 	}
 
