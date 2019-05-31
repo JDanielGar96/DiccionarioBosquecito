@@ -33,7 +33,7 @@ public class ArchivadorFrecuencia {
 	private File archivo; // Sera donde se guarden las palabras que se traducen
 	private ArrayList<String> registroPalabras; // Sera la lista de palabras traducidas por el usuario
 
-	/*
+	/**
 	 * Es el constructor de la clase que inicializa las variables y el metodo
 	 * cargarRegistro
 	 */
@@ -41,16 +41,15 @@ public class ArchivadorFrecuencia {
 		this.cargarRegistro();
 	}
 
-	/*
-	 * Este metodo se encaga de agregar un registro de una traduccion realizada por
-	 * el usuario
+	/**
+	 * Agrega un registros al ArrayList
 	 */
 	public void agregarRegistro(String traduccion) {
 		this.registroPalabras.add(traduccion);
 	}
 
-	/*
-	 * Este metodo escribe o guarda los regristros de los registros agregados
+	/**
+	 * Escribe los registros del ArrayList a un archivo Aleatorio
 	 */
 	public void escribirRegistros() {
 		int clave = 0;
@@ -87,6 +86,10 @@ public class ArchivadorFrecuencia {
 		}
 	}
 
+	
+	/**
+	 *  Carga los registros desde un archivo aleatorio .DAT
+	 */
 	private void cargarRegistro() {
 		this.registroPalabras = new ArrayList<String>();
 
@@ -126,11 +129,19 @@ public class ArchivadorFrecuencia {
 			System.out.println(e);
 		}
 	}
-
+	
+	/**
+	 * Devuelve el array de traducciones si ya fue inicializado
+	 * @return ArrayList traducciones
+	 */
 	public ArrayList<String> obtenerTraducciones() {
 		return this.registroPalabras;
 	}
 
+	/**
+	 * Mediante el uso de colecciones, agrupacion y orden hace conteo de la cantidad de palabras frecuentes.
+	 * @return String de las palabras frecuentes.
+	 */
 	public String obtenerFrecuenciaPalabras() {
 		Map<String, Long> frecuenciaPalabras = this.registroPalabras.stream()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
@@ -141,19 +152,4 @@ public class ArchivadorFrecuencia {
 
 		return sorted.toString();
 	}
-
-//	public static void main(String[] args) {
-//		ArchivadorFrecuencia frecuencia = new ArchivadorFrecuencia();
-//		
-////		frecuencia.agregarRegistro("Hola");
-////		frecuencia.agregarRegistro("Chao");
-////		frecuencia.agregarRegistro("Hola");
-////		frecuencia.agregarRegistro("Hola");
-////		
-////		frecuencia.escribirRegistros();
-//		
-//		ArrayList<String> traducciones = frecuencia.obtenerTraducciones();
-//		
-//		System.out.println(frecuencia.obtenerFrecuenciaPalabras());
-//	}
 }

@@ -96,7 +96,7 @@ public class PanelCantidad extends JPanel {
 
 	}
 
-	/*
+	/**
 	 * Este metodo coloca la cantidad de palabras que hay de ingles en la etiqueta
 	 * cantidadIngles
 	 */
@@ -104,7 +104,7 @@ public class PanelCantidad extends JPanel {
 		this.cantidadIngles.setText(String.valueOf(cantidadIngles));
 	}
 
-	/*
+	/**
 	 * Este metodo coloca la cantidad de palabras que hay de frances en la etiqueta
 	 * cantidadIngles
 	 */
@@ -112,7 +112,7 @@ public class PanelCantidad extends JPanel {
 		this.cantidadFrances.setText(String.valueOf(cantidadFrances));
 	}
 
-	/*
+	/**
 	 * Este metodo coloca la cantidad de palabras que hay de Italiano en la etiqueta
 	 * cantidadIngles
 	 */

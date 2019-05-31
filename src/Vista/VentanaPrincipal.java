@@ -46,11 +46,15 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		getContentPane().add(panelCantidad);
 		getContentPane().add(panelOps);
 
-		Initialize();
+		initialize();
 		setVisible(true);
 	}
-
-	private void Initialize() {
+	
+	
+	/**
+	 * Inicializa los componentes de la vista
+	 */
+	private void initialize() {
 
 		setTitle("Traductor El Bosquecito");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./Assets/Logo.png"));
@@ -74,7 +78,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	}
 
-	/*
+	/**
 	 * (Es el metodo que se encargara de comunicarse con la clase Control, por medio
 	 * de las acciones que realiza el usuario y segun estas realizar una tarea.
 	 * Mientras que envia las acciones a la clase Control para que puedan as�
@@ -178,6 +182,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		}
 	}
 
+	/**
+	 * Actualiza la cantidad de palabras con metodos del controlador.
+	 */
 	public void actualizarCantidadPalabras() {
 		int[] numeroPalabras = this.control.actualizarNumeroPalabras();
 		panelCantidad.setCantidadIngles(numeroPalabras[0]);
@@ -185,7 +192,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		panelCantidad.setCantidadItaliano(numeroPalabras[2]);
 	}
 
-	/*
+	/**
 	 * Este metodo se utilizara para las excepciones de esta clase mostrando un
 	 * mensaje al usuario de que ha sucedido un error
 	 */

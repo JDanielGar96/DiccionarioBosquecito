@@ -32,12 +32,11 @@ public class Diccionario {
 	/**
 	 * [Recibe una palabra y su traduccion para agregarla al diccionario]
 	 * 
-	 * @param palabra
-	 * @param traduccion
+	 * @param palabra Palabra a traducir
+	 * @param traduccion Traduccion palabra
 	 * @return boolean 
 	 */
 	public boolean agregarPalabra(String palabra, String traduccion) {
-		// TODO -> ADD WORD VERIFICATION
 		this.palabras.add(palabra);
 		this.traducciones.add(traduccion);
 		return true;
@@ -45,8 +44,8 @@ public class Diccionario {
 	
 	/**
 	 * [Recibe una palabra y retorna la traduccion de la misma]
-	 * @param palabra
-	 * @return String
+	 * @param palabra Palabra a traducir
+	 * @return String 
 	 */
 	public String traduccionPalabra(String palabra) {
 		for(int i = 0; i < this.palabras.size(); i++) {

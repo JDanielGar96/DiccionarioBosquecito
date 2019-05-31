@@ -28,7 +28,7 @@ public class Control {
 	private Archivo archivo;
 	private ArchivadorFrecuencia frecuencia;
 
-	/*
+	/**
 	 * Este es el constructor de la clase donde se inicializan las variables creando
 	 * objetos de las clases respectivas
 	 */
@@ -47,11 +47,15 @@ public class Control {
 		}
 	}
 
-	/*
+	/**
 	 * Este metodo se encarga de agregar las palabras que recibe de la vista a los
 	 * diccionarios respectivos de cada idioma por medio de las parametros de
 	 * cadenas de texto palabra, traduccion e idioma. A su vez conecta con el metodo
 	 * de la clase Archivo donde escribira la palabra agregada.
+	 * 
+	 * @param palabra
+	 * @param traduccion
+	 * @param idioma
 	 */
 	public void agregarPalabra(String palabra, String traduccion, String idioma) {
 		switch (idioma) {
@@ -72,7 +76,7 @@ public class Control {
 		}
 	}
 
-	/*
+	/**
 	 * Este metodo buscara la traduccion de una palabra introducida por el usuario
 	 * en los objetis de la clase diccionario y utilizando el metro
 	 * traduccionPalabra de dicha clase. Esto lo hara recibiendo como parametros la
@@ -82,6 +86,10 @@ public class Control {
 	 * la palabra buscada no es de idioma espanol se usuara el metodo
 	 * traduccionInversaPalabra que retornada la traduccion de dicha palabra en el
 	 * idioma en que se busca traducir
+	 * @param palabraBuscada
+	 * @param idiomaOrigen
+	 * @param idiomaDestino
+	 * @return
 	 */
 	public String buscarTraduccion(String palabraBuscada, String idiomaOrigen, String idiomaDestino) {
 		String traduccion = "";
@@ -143,11 +151,20 @@ public class Control {
 		}
 	}
 	
+	
+	/**
+	 * Obtiene las palabras frecuentes gracias a la clase Archivador Frecuencia
+	 * @return String con las palabras.
+	 */
 	public String obtenerPalabrasFrecuentes() {
 		this.frecuencia.escribirRegistros();
 		return this.frecuencia.obtenerFrecuenciaPalabras();
 	}
-
+	
+	/**
+	 * Se obtiene el numero de palabras en cada uno de los diccionarios
+	 * @return int[] con las tres posiciones del respectivo numero
+	 */
 	public int[] actualizarNumeroPalabras() {
 		int[] numeroPalabras = new int[3];
 		

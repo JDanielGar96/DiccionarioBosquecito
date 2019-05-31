@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class PanelDeImagen extends JLabel {
-	/*
+	/**
 	 * Es el panel de la ventana principal donde el usuario vera una imagen alusiva
 	 * a la aplicacion o programa Diccionario El Bosquecito
 	 */
@@ -16,7 +16,7 @@ public class PanelDeImagen extends JLabel {
 	private Image nuevaImg;
 	private ImageIcon imagen;
 
-	/*
+	/**
 	 * Constructor que inicializa las variables de la clase ajustando la imagen al
 	 * panel
 	 */

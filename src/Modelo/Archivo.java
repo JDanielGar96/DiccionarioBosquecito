@@ -32,7 +32,11 @@ public class Archivo {
 
 	private static int tamanoDelRegistro; // va a controlar el numero de bites por registro
 	private long numeroDeRegistros; // sera la cantidad de registros hechos en el archivo
-
+	
+	/**
+	 * Constructor que genera los archivos iniciales para la lectura y escritura de archivos.
+	 * @throws IOException
+	 */
 	public Archivo() throws IOException {
 		this.archivo = new File("./Archivo/Archivo.dat");
 		this.accesoRandomArchivo = new RandomAccessFile(this.archivo, "rw");
@@ -105,55 +109,4 @@ public class Archivo {
 			JOptionPane.showMessageDialog(null, "Ouch! No se pudo agregar la palabra.");
 		}
 	}
-
-//	/*
-//	 * Este metodo permite buscar una palabra en el archivo
-//	 * Recibiendo una variable que sera palabra buscada
-//	 * retornando la clave, la palabra en espanol, la palabra traducida y el idioma de traduccion
-//	 */
-//	public String buscarPalabra(String palabra) throws IOException {
-//
-//		try {
-//			// Se posiciona al inicio del registro deseado
-//			this.accesoRandomArchivo.seek(this.clave * this.tamanoDelRegistro); // El argumento es de tipo long
-//			this.clave = this.linea.read();
-//
-//			// Se lee la cadena de texto
-//			for (int i = 0; i < 25; ++i) {
-//				this.palabraEsp += this.linea.readLine();
-//			}
-//			for (int i = 0; i < 25; ++i) {
-//				this.palabraTraducida += linea.readLine();
-//			}
-//			for (int i = 0; i < 25; ++i) {
-//				this.idioma += linea.read();
-//			}
-//
-//			linea_Archivo = this.clave + " " + this.palabraEsp + " " + this.palabraTraducida + " " + this.idioma;
-//
-//			// Se limpian las cadenas de texto o java encadena con lo siguiente
-//			this.palabraEsp = "";
-//			this.palabraTraducida = "";
-//			this.idioma = "";
-//			this.linea.close();
-//
-//		} catch (FileNotFoundException fnfe) {
-//			JOptionPane.showMessageDialog(null, "La palabra busca no pudo ser encontrada.");
-//		} catch (IOException ioe) {
-//			JOptionPane.showMessageDialog(null, "Ups no se pudo mostrar la palabra traducida.");
-//		}
-//		return linea_Archivo;
-//	}
-//	
-//	public String guardarPalabraEsp(String pEsp) {
-//	return this.palabraEsp = pEsp;
-//  }
-//
-//  public String guardarPalabraTraducida(String pTradu) {
-//	return this.palabraTraducida = this.palabraTraducida + pTradu;
-//  }
-//
-//  public void actualizarNumeroDePalabras() {
-//  }
-
 }
